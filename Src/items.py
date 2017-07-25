@@ -2,7 +2,7 @@
 ## Author: Aureliano Yepez 
 ## Date: July 22, 2017
 ### Create an excel sheet out of this ? 
-from .main import Account 
+
 
 ## Uses dictionary to store data 
 ## {Key=Item, Value=Cost} *Items should update/ increment if same 
@@ -36,13 +36,32 @@ class Items:
 
 	
 	## Groceries method should update item, cost, 
-	def groceries(self, item):
-		self.listGroceries.append(item)
-		totalCost
+	## Should get the timestamp - current day and time inputed 
+	def groceries(self, item , cost, quantity): #cost is individual item
+		self.listGroceries[item] = cost
+		print("You have added: " + item  + "to your list of groceries") 
+		print("The total amount of groceries in your list:")
+		totalItemsGroceries += quantity
+		groceriesList()
+
+		
+	def groceriesList(self):
+		for item in listGroceries:
+			for cost in listGroceries:
+				print("Your current list: ")
+				print(item, quantity, quantity * cost) 
+
+
+
 
 	# Purpose of this function is to check whether the individual 
 	# is able to purchase the item 
-	def checkGroceriePurchase(self):
+	#def checkGroceriePurchase(self):
+
+#**************** Calls to construct class lists ***************#
+# Should be user interface 
+# Asks about the type of lists and what to add 
+# Should know whether the item is in the list 
 
 
 
