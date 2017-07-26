@@ -1,7 +1,9 @@
-## File Description ## 
-## Author: Aureliano Yepez 
-## Date: July 22, 2017
-### Create an excel sheet out of this ? 
+################################## File Description ######################################
+## Author: Aureliano Yepez 																##
+## Date: July 22, 2017																	##
+## items.py is a list of classes that contain potential categories for the user to input##
+## his or her items into   																##
+##########################################################################################
 
 # class TrackInstances()
 # 	instances = []
@@ -11,7 +13,9 @@
 
 ## Uses dictionary to store data 
 ## {Key=Item, Value=Cost} *Items should update/ increment if same 
+
 class Items:
+
 	## list___ are dictionaries
 	### Totals ###
 	taxes = .925 # check for taxes for areas
@@ -47,7 +51,7 @@ class Items:
 		self.cost = cost 
 		self.quantity = quantity
 
-
+#***** Grocery Class *****#
 class Grocery(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self, item, cost, quantity)
@@ -70,6 +74,7 @@ class Grocery(Items):
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
 
+#***** School Class *****#
 class School(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
@@ -89,6 +94,7 @@ class School(Items):
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
 
+#***** Personal Class *****#
 class Personal(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
@@ -107,7 +113,7 @@ class Personal(Items):
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
-
+#***** Housing Class *****#
 class Housing(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
@@ -126,7 +132,7 @@ class Housing(Items):
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
-
+#***** Custom Class *****#
 class Custom(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
@@ -140,8 +146,8 @@ class Custom(Items):
 
 	def cList(self):
 		print("Your current list: ")
-		for key in self.listPersonal:
-			print(key, self.listPersonal[key])
+		for key in self.listCustom:
+			print(key, self.listCustom[key])
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
@@ -161,6 +167,7 @@ class Custom(Items):
 ## Use while loop 
 ## Maybe implement the Ratcliff and Obershelp
 
+# This is hard coded 
 fruit = Grocery('apple',2,3)
 print(fruit.item)
 print(fruit.cost)
