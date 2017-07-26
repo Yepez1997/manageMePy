@@ -12,6 +12,7 @@
 ## Uses dictionary to store data 
 ## {Key=Item, Value=Cost} *Items should update/ increment if same 
 class Items:
+	## list___ are dictionaries
 	### Totals ###
 	taxes = .925 # check for taxes for areas
 	totalItems = 0 
@@ -56,14 +57,18 @@ class Grocery(Items):
 	def groceryAdd(self, item, cost, quantity): 
 		self.listGroceries[item] = cost
 		print("You have added: " + str(quantity) + " " + item +"(s)"  + " to your list of groceries") 
-		print("The total amount of groceries in your list:")
 		Items.totalItemsGroceries += quantity
+		print("The total amount of groceries in your list: ") 
+		return Items.totalItemsGroceries
+		
 			
 	def gList(self): #gList == groceriesList
-		for item in listGroceries:
-			for cost in listGroceries:
-				print("Your current list: ")
-				print(item, quantity, quantity * cost) 
+		print("Your current list: ")
+		for key in self.listGroceries: # i goes through keys 
+				print(key, self.listGroceries[key])
+		print("-----Current------")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
 
 
 	# Purpose of this function is to check whether the individual 
@@ -75,12 +80,32 @@ class Grocery(Items):
 # Asks about the type of lists and what to add 
 # Should know whether the item is in the list 
 
-### Test Cases 
+### Test Cases ###
 
 fruit = Grocery('apple',2,3)
 print(fruit.item)
 print(fruit.cost)
 print(fruit.quantity)
+if (fruit):
+	fruit.groceryAdd(fruit.item,fruit.cost,fruit.quantity)
+	fruit.gList()
+
+fruittwo = Grocery('kiwi',1,5)
+print(fruittwo.item)
+print(fruittwo.cost)
+print(fruittwo.quantity)
+if (fruittwo):
+	fruittwo.groceryAdd(fruittwo.item,fruittwo.cost,fruittwo.quantity)
+	fruittwo.gList()
+
+fruitthree = Grocery('orange',3,5)
+print(fruitthree.item)
+print(fruitthree.cost)
+print(fruitthree.quantity)
+if (fruitthree):
+	fruitthree.groceryAdd(fruitthree.item,fruitthree.cost,fruitthree.quantity)
+	print(fruitthree.gList())
+
 
 
 
