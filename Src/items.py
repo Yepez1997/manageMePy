@@ -70,6 +70,82 @@ class Grocery(Items):
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
 
+class School(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+
+	def schoolAdd(self,item,cost,quantity):
+		self.listSchool[item] = cost 
+		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		Items.totalSchoolItems += quantity
+		print("The total amount of school items in your list: ")
+		return Items.totalSchoolItems
+
+	def sList(self):
+		print("Your current list: ")
+		for key in self.listSchool:
+			print(key, self.listSchool[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+class Personal(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+
+	def personalAdd(self,item,cost,quantity):
+		self.listPersonal[item] = cost 
+		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		Items.totalItemsPersonal += quantity
+		print("The total amount of school items in your list: ")
+		return Items.totalItemsPersonal
+
+	def pList(self):
+		print("Your current list: ")
+		for key in self.listPersonal:
+			print(key, self.listPersonal[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+class Housing(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+
+	def housingAdd(self,item,cost,quantity):
+		self.listHousing[item] = cost 
+		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		Items.totalItemsHousing += quantity
+		print("The total amount of school items in your list: ")
+		return Items.totalItemsHousing
+
+	def hList(self):
+		print("Your current list: ")
+		for key in self.listHousing:
+			print(key, self.listHousing[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+class Custom(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+
+	def customAdd(self,item,cost,quantity):
+		self.listCustom[item] = cost 
+		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		Items.totalItemsCustom += quantity
+		print("The total amount of school items in your list: ")
+		return Items.totalItemsCustom
+
+	def cList(self):
+		print("Your current list: ")
+		for key in self.listPersonal:
+			print(key, self.listPersonal[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
 
 	# Purpose of this function is to check whether the individual 
 	# is able to purchase the item 
@@ -81,6 +157,9 @@ class Grocery(Items):
 # Should know whether the item is in the list 
 
 ### Test Cases ###
+## Create a list that automatically generates
+## Use while loop 
+## Maybe implement the Ratcliff and Obershelp
 
 fruit = Grocery('apple',2,3)
 print(fruit.item)
