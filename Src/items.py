@@ -13,7 +13,8 @@
 
 ## Uses dictionary to store data 
 ## {Key=Item, Value=Cost} *Items should update/ increment if same 
-import time 
+
+import datetime
 
 class Items:
 
@@ -57,7 +58,8 @@ class Grocery(Items):
 		
 		#groceryAdd(self,item,cost,quantity)
 		##More Categories sooner *"beta categories"
-	def groceryAdd(self, item, cost, quantity): 
+	def groceryAdd(self, item, cost, quantity, datetime): 
+		self.datetime = datetime.datetime
 		self.listGroceries[item] = cost
 		print("You have added: " + str(quantity) + " " + item +"(s)"  + " to your list of groceries") 
 		Items.totalItemsGroceries += quantity
@@ -78,7 +80,8 @@ class School(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def schoolAdd(self,item,cost,quantity):
+	def schoolAdd(self,item,cost,quantity,datetime):
+		self.datetime = datetime.datetime
 		self.listSchool[item] = cost 
 		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
 		Items.totalSchoolItems += quantity
@@ -98,7 +101,8 @@ class Personal(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def personalAdd(self,item,cost,quantity):
+	def personalAdd(self,item,cost,quantity,datetime):
+		self.datetime = datetime.datetime
 		self.listPersonal[item] = cost 
 		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
 		Items.totalItemsPersonal += quantity
@@ -118,7 +122,8 @@ class Housing(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def housingAdd(self,item,cost,quantity):
+	def housingAdd(self,item,cost,quantity, datetime):
+		self.datetime = datetime.datetime
 		self.listHousing[item] = cost 
 		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
 		Items.totalItemsHousing += quantity
@@ -138,7 +143,8 @@ class Custom(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def customAdd(self,item,cost,quantity):
+	def customAdd(self,item,cost,quantity,datetime):
+		self.datetime = datetime.datetime
 		self.listCustom[item] = cost 
 		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
 		Items.totalItemsCustom += quantity
@@ -165,22 +171,33 @@ class Totals(Items)
 	totalsCost = [] #use sum(to print total sum of everything)
 	totalItems = [] #use for loop to count every item in the list 
 
+	def __init__(self):
+		Items.__init__(self):
 
 	def groceriesIter(self):
 		print('########## Groceries List ##########')
-		
+		print()
 
 	def housingIter(self):
 		print('########## Housing List ##########')
+		hList()
 
 	def personalIter(self):
-		print('########## Personal List ##########')
+		print('########## Personal List ##########')	
+		pList()
 
 	def schoolIter(self):
 		print('########## School List ##########')
+		sList()
 
 	def customIter(self):
 		print('########## Custom List ##########')
+		cList()
+
+	def Totals(self):
+		print('Total Cost: ' + str(sum(totalsCost)) 
+		print('Total Items: ' + str(len(totalItems))) 
+
 
 
 #**************** Calls to construct class lists ***************#
@@ -219,7 +236,13 @@ if (fruitthree):
 	print(fruitthree.gList())
 
 ## try to find a way to make this user friendly
-
-
+## *********** NEEDS TO BE TESTED 
+totals = Total() ##Should just calls itself 
+print(totals.groceriesIter())
+print(totals.housingIter())
+print(totals.personalIter())
+print(totals.schoolIter())
+print(totals.customIter())
+print(totals.Totals())
 
 
