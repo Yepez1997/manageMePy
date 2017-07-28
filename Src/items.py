@@ -13,15 +13,14 @@
 
 ## Uses dictionary to store data 
 ## {Key=Item, Value=Cost} *Items should update/ increment if same 
+import time 
 
 class Items:
 
 	## list___ are dictionaries
 	### Totals ###
 	taxes = .925 # check for taxes for areas
-	totalItems = 0 
-	totalCost = 0 
-	listItems = {}
+	
 	###  Groceries ###
 	totalItemsGroceries = 0 
 	costGroceris = 0
@@ -113,6 +112,7 @@ class Personal(Items):
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
+
 #***** Housing Class *****#
 class Housing(Items):
 	def __init__(self,item,cost,quantity):
@@ -132,6 +132,7 @@ class Housing(Items):
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
+
 #***** Custom Class *****#
 class Custom(Items):
 	def __init__(self,item,cost,quantity):
@@ -156,6 +157,31 @@ class Custom(Items):
 	# Purpose of this function is to check whether the individual 
 	# is able to purchase the item 
 	#def checkGroceriePurchase(self):
+
+## Class totals prints out every created class 
+## Every created class is stored in a dictionary
+## Totals inherits the Class Items, which contains the  
+class Totals(Items)
+	totalsCost = [] #use sum(to print total sum of everything)
+	totalItems = [] #use for loop to count every item in the list 
+
+
+	def groceriesIter(self):
+		print('########## Groceries List ##########')
+		
+
+	def housingIter(self):
+		print('########## Housing List ##########')
+
+	def personalIter(self):
+		print('########## Personal List ##########')
+
+	def schoolIter(self):
+		print('########## School List ##########')
+
+	def customIter(self):
+		print('########## Custom List ##########')
+
 
 #**************** Calls to construct class lists ***************#
 # Should be user interface 
@@ -191,6 +217,8 @@ print(fruitthree.quantity)
 if (fruitthree):
 	fruitthree.groceryAdd(fruitthree.item,fruitthree.cost,fruitthree.quantity)
 	print(fruitthree.gList())
+
+## try to find a way to make this user friendly
 
 
 
