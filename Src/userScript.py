@@ -37,7 +37,7 @@ print(totals.schoolIter())
 print(totals.customIter())
 print(totals.Totals())
 '''
-
+import numpy as np
 ################# Start #######################
 print("######################################################################")
 print("Welcome to ManageMe!")
@@ -59,30 +59,51 @@ print("* Custom")
 
 #P1 --- list of words dataBase  
 #My imlplemenation of the Ratcliff algorthm concept
+
 listOfCategories = ["groceries","custom","school","housing","personal"]
+listOfCatergoriesIndex = [0,1,2,3,4] #still neds updates 
 categoryResponse = input("What would you like to input into your Budget list? ")
 if (categoryResponse):
 	charactersOfInput = list(categoryResponse) # characters of input 
+	print(charactersOfInput)
+	print("########################################")
 	for category in listOfCategories: 
 		categoryListWordChar = list(category) ## Gives me a matrix of the words 
 		print(categoryListWordChar)
 		StackOfCorrect = [] #Where we want to append and take off words in the list 
 		# wordsInCommon = 
 		for charInput in categoryResponse: 
-			if charInput in listOfCategories: 
+			#for cate
+			if charInput in category:
+				#print(charInput)
+
 				# if charInput in one of the matrix, we should append it to the StackOfCorrect
 				# we want to compare one matrix row at a time 
 				# each matrix row is a word, so in esence compare each word's chars with input chars 
 				# **** from there find a way to get the perctage of words anc compare
-				
+
 				StackOfCorrect.append(charInput)
-
-
-
+				print(StackOfCorrect)
+				
 else: 
 	categoryResponse
 
+"""
+## Recursion as an alternate path -- probably more effective
+listOfCategories = ["groceries","custom","school","housing","personal"]
+listOfCatergoriesIndex = [0,1,2,3,4] #still neds updates 
 
 
+categoryResponse = list(categoryResponse)
+
+if 
+
+class TwoStrings
+
+	def __init__(stringOne,stringTwo):
+		self.stringOne = stringOne
+		self.stringTwo = stringTwo
+
+"""
 
 
