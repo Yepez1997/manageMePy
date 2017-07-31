@@ -38,6 +38,7 @@ print(totals.customIter())
 print(totals.Totals())
 '''
 import numpy as np
+
 ################# Start #######################
 print("######################################################################")
 print("Welcome to ManageMe!")
@@ -59,7 +60,7 @@ print("* Custom")
 
 #P1 --- list of words dataBase  
 #My imlplemenation of the Ratcliff algorthm concept
-
+"""
 listOfCategories = ["groceries","custom","school","housing","personal"]
 listOfCatergoriesIndex = [0,1,2,3,4] #still neds updates 
 categoryResponse = input("What would you like to input into your Budget list? ")
@@ -88,7 +89,7 @@ if (categoryResponse):
 else: 
 	categoryResponse
 
-"""
+
 ## Recursion as an alternate path -- probably more effective
 listOfCategories = ["groceries","custom","school","housing","personal"]
 listOfCatergoriesIndex = [0,1,2,3,4] #still neds updates 
@@ -104,6 +105,18 @@ class TwoStrings
 		self.stringOne = stringOne
 		self.stringTwo = stringTwo
 
+
 """
+def choseCategory(input):
+	listOfCategories = ["groceries","custom","school","housing","personal"]
+	for i in listOfCategories:
+		if input == i: 
+			print("Succesfully added a category for: " + str(i))
+		categoryResponseTwo = input("What would you like to input into your Budget list? ")
+		choseCategory(categoryResponseTwo)
+
+categoryResponse = input("What would you like to input into your Budget list? ")
+choseCategory(categoryResponse)
+
 
 
