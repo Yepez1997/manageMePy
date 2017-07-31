@@ -210,39 +210,6 @@ class Totals(Items)
 ## Use while loop 
 ## Maybe implement the Ratcliff and Obershelp
 
-# This is hard coded 
-fruit = Grocery('apple',2,3)
-print(fruit.item)
-print(fruit.cost)
-print(fruit.quantity)
-if (fruit):
-	fruit.groceryAdd(fruit.item,fruit.cost,fruit.quantity)
-	fruit.gList()
 
-fruittwo = Grocery('kiwi',1,5)
-print(fruittwo.item)
-print(fruittwo.cost)
-print(fruittwo.quantity)
-if (fruittwo):
-	fruittwo.groceryAdd(fruittwo.item,fruittwo.cost,fruittwo.quantity)
-	fruittwo.gList()
-
-fruitthree = Grocery('orange',3,5)
-print(fruitthree.item)
-print(fruitthree.cost)
-print(fruitthree.quantity)
-if (fruitthree):
-	fruitthree.groceryAdd(fruitthree.item,fruitthree.cost,fruitthree.quantity)
-	print(fruitthree.gList())
-
-## try to find a way to make this user friendly
-## *********** NEEDS TO BE TESTED 
-totals = Total() ##Should just calls itself 
-print(totals.groceriesIter())
-print(totals.housingIter())
-print(totals.personalIter())
-print(totals.schoolIter())
-print(totals.customIter())
-print(totals.Totals())
 
 

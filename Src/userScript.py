@@ -66,6 +66,17 @@ if (categoryResponse):
 	for category in listOfCategories: 
 		categoryListWordChar = list(category) ## Gives me a matrix of the words 
 		print(categoryListWordChar)
+		StackOfCorrect = [] #Where we want to append and take off words in the list 
+		# wordsInCommon = 
+		for charInput in categoryResponse: 
+			if charInput in listOfCategories: 
+				# if charInput in one of the matrix, we should append it to the StackOfCorrect
+				# we want to compare one matrix row at a time 
+				# each matrix row is a word, so in esence compare each word's chars with input chars 
+				# **** from there find a way to get the perctage of words anc compare
+				
+				StackOfCorrect.append(charInput)
+
 
 
 else: 
