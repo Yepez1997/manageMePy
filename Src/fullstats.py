@@ -3,7 +3,7 @@
 ## Date: July 22, 2017
 
 #should be called after everything is computed
-class fullStats(Items): ## Should inherit items and account info 
+class fullStats(Totals): ## Should inherit items and account info or the class Totals
 
 	def __init__(self):
 
