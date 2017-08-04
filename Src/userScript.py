@@ -128,12 +128,18 @@ def choseCategory():
 			itemToAdd = input("What item would you like to add?: ")
 			costToAdd = input("How much does the item cost? ")
 			quantityToAdd = input("How many would you like to add?: ")
-			## Make call to classes ##
-			## 
-			#itemToAdd = eval(itemToAdd) # to make as a variable 
+			## Make call to classes #########
+
+			###### Take a close look at this from stack over flow ####### 
+			#      exec("%s = %d" % (x,2)) 
+			print(itemToAdd)
+			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable 
+			print(itemToAdd) # we should get two if the number changes 
 			for key in classDictionaryList: 
 				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
-					print(classDictionaryList[key])
+					classKey = eval(classDictionaryList[key])
+			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd)
+			###################################
 			
 			print("Succesfully added a category for: " + str(categoryResponse))
 			print("You have added " + str(quantityToAdd)+ " " + str(itemToAdd) +"(s)" + " at a price of " + costToAdd + " each" )

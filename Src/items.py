@@ -58,7 +58,7 @@ class Grocery(Items):
 		
 		#groceryAdd(self,item,cost,quantity)
 		##More Categories sooner *"beta categories"
-	def groceryAdd(self, item, cost, quantity, datetime): 
+	def groceryAdd(self, item, cost, quantity): ## remember i added datetime 
 		self.datetime = datetime.datetime
 		self.listGroceries[item] = cost
 		print("You have added: " + str(quantity) + " " + item +"(s)"  + " to your list of groceries") 
