@@ -107,16 +107,26 @@ class TwoStrings
 
 
 """
-def choseCategory(input):
+def choseCategory():
+	categoryResponse = input('What would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal"]
 	for i in listOfCategories:
-		if input == i: 
-			print("Succesfully added a category for: " + str(i))
-		categoryResponseTwo = input("What would you like to input into your Budget list? ")
-		choseCategory(categoryResponseTwo)
+		if categoryResponse in listOfCategories: 
+			print("Succesfully added a category for: " + str(categoryResponse))
+			yesOrNo = input("Do you want to add another item? ")
+			yesOrNo = yesOrNo.lower()
+			yes = "yes"
+			#yesResponses = ["yes","YES","y","YES"]
+			if (yesOrNo == yes) :
+				choseCategory()
+			else: 
+				break
+		else:
+			print("Sorry the category " + str(categoryResponse) + " is not in the list")
+			choseCategory()
 
-categoryResponse = input("What would you like to input into your Budget list? ")
-choseCategory(categoryResponse)
+choseCategory()
+
 
 
 
