@@ -42,6 +42,12 @@ class Items:
 	totalItemsCustom = 0
 	totalCustom = 0 
 	listCustom = {}
+	### Restaurants ###
+	totalItemsRestaurants = 0
+	totalRestaurants = 0 
+	listRestaurants = {}
+
+
 
 	## Groceries method should update item, cost, 
 	## Should get the timestamp - current day and time inputed
@@ -63,8 +69,8 @@ class Grocery(Items):
 		self.datetime = datetime.datetime
 		self.listGroceries[item] = cost
 		print("You have added: " + str(quantity) + " " + item +"(s)"  + " to your list of groceries") 
-		Items.totalItemsGroceries += quantity
-		print("The total amount of groceries in your list: ") 
+		Items.totalItemsGroceries += int(quantity)
+		print("The total amount of groceries in your list: " + str(Items.totalItemsGroceries)) 
 		return Items.totalItemsGroceries
 		
 			
@@ -86,7 +92,7 @@ class School(Items):
 		self.listSchool[item] = cost 
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
 		Items.totalSchoolItems += int(quantity)
-		print("The total amount of school items in your list: ")
+		print("The total amount of school items in your list: " + str(Items.totalSchoolItems))
 		return Items.totalSchoolItems
 
 	def sList(self):
@@ -105,9 +111,9 @@ class Personal(Items):
 	def personalAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listPersonal[item] = cost 
-		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
-		Items.totalItemsPersonal += quantity
-		print("The total amount of school items in your list: ")
+		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of personal items")
+		Items.totalItemsPersonal += int(quantity)
+		print("The total amount of school items in your list: " + str(Items.totalItemsPersonal))
 		return Items.totalItemsPersonal
 
 	def pList(self):
@@ -126,9 +132,9 @@ class Housing(Items):
 	def housingAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listHousing[item] = cost 
-		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of school items")
-		Items.totalItemsHousing += quantity
-		print("The total amount of school items in your list: ")
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of housing items")
+		Items.totalItemsHousing += int(quantity)
+		print("The total amount of school items in your list: " + str(Items.totalItemsHousing))
 		return Items.totalItemsHousing
 
 	def hList(self):
@@ -147,15 +153,36 @@ class Custom(Items):
 	def customAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listCustom[item] = cost 
-		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of school items")
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of custom items")
 		Items.totalItemsCustom += quantity
-		print("The total amount of school items in your list: ")
+		print("The total amount of school items in your list: " + str(Items.totalItemsCustom))
 		return Items.totalItemsCustom
 
 	def cList(self):
 		print("Your current list: ")
 		for key in self.listCustom:
 			print(key, self.listCustom[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+#*****  Restaurants Class *****#
+class Restaurants(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+
+	def restaurantsAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listRestaurants[item] = cost 
+		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of restaurants items")
+		Items.totalRestaurantsItems += int(quantity)
+		print("The total amount of restaurants items in your list: " + str(Items.totalItemsRestaurants))
+		return Items.totalRestaurantsItems
+
+	def rList(self):
+		print("Your current list: ")
+		for key in self.listRestaurants:
+			print(key, self.listRestaurants[key])
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost

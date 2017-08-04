@@ -58,6 +58,7 @@ print("* School")
 print("* Housing")
 print("* Personal")
 print("* Custom")
+print("* Restaurants")
 
 
 ## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess
@@ -118,14 +119,14 @@ class TwoStrings
 """
 def choseCategory():
 	categoryResponse = input('What category would you like to input into your Budget list? ')
-	listOfCategories = ["groceries","custom","school","housing","personal"]
-	currentCategores = ["gList","cList","pList","hList","sList"]
+	listOfCategories = ["groceries","custom","school","housing","personal","restaurants"]
+	currentCategores = ["gList","cList","pList","hList","sList","rList"]
 	
-	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd"} #first letter of categories 
+	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd()"} #first letter of categories 
 	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
 	#key= Item category name
 	#value = Class Name   
-	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal"}
+	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants"}
 	for i in listOfCategories:
 		if (categoryResponse in listOfCategories): 
 			# add to the classes 
@@ -158,6 +159,8 @@ def choseCategory():
 					if currentAdd == "schoolAdd":
 						itemToAdd.schoolAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
 					if currentAdd == "housingAdd":
+						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+					if currentAdd == "restaurantsAdd":
 						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
 
 
