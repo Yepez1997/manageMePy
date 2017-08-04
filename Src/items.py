@@ -83,7 +83,7 @@ class School(Items):
 	def schoolAdd(self,item,cost,quantity,datetime):
 		self.datetime = datetime.datetime
 		self.listSchool[item] = cost 
-		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
 		Items.totalSchoolItems += quantity
 		print("The total amount of school items in your list: ")
 		return Items.totalSchoolItems
@@ -104,7 +104,7 @@ class Personal(Items):
 	def personalAdd(self,item,cost,quantity,datetime):
 		self.datetime = datetime.datetime
 		self.listPersonal[item] = cost 
-		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
 		Items.totalItemsPersonal += quantity
 		print("The total amount of school items in your list: ")
 		return Items.totalItemsPersonal
@@ -125,7 +125,7 @@ class Housing(Items):
 	def housingAdd(self,item,cost,quantity, datetime):
 		self.datetime = datetime.datetime
 		self.listHousing[item] = cost 
-		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of school items")
 		Items.totalItemsHousing += quantity
 		print("The total amount of school items in your list: ")
 		return Items.totalItemsHousing
@@ -146,7 +146,7 @@ class Custom(Items):
 	def customAdd(self,item,cost,quantity,datetime):
 		self.datetime = datetime.datetime
 		self.listCustom[item] = cost 
-		print("You have added: " + str(quantity) + " " + item "(s)" + " to your list of school items")
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of school items")
 		Items.totalItemsCustom += quantity
 		print("The total amount of school items in your list: ")
 		return Items.totalItemsCustom
@@ -167,6 +167,9 @@ class Custom(Items):
 ## Class totals prints out every created class 
 ## Every created class is stored in a dictionary
 ## Totals inherits the Class Items, which contains the  
+
+##### August 3rd: this class needs tweeking -- trying to get to work with adding stuff in first 
+"""
 class Totals(Items)
 	totalsCost = [] #use sum(to print total sum of everything)
 	totalItems = [] #use for loop to count every item in the list 
@@ -197,7 +200,7 @@ class Totals(Items)
 	def Totals(self):
 		print('Total Cost: ' + str(sum(totalsCost)) 
 		print('Total Items: ' + str(len(totalItems))) 
-
+"""
 
 
 #**************** Calls to construct class lists ***************#

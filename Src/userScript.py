@@ -38,6 +38,15 @@ print(totals.customIter())
 print(totals.Totals())
 '''
 import numpy as np
+## imported classes from file items.py #######
+from items import Items 
+from items import Grocery
+from items import Personal
+from items import Custom 
+from items import School 
+from items import Housing 
+#from items import Totals 
+###############################################
 
 ################# Start #######################
 print("######################################################################")
@@ -108,22 +117,38 @@ class TwoStrings
 
 """
 def choseCategory():
-	categoryResponse = input('What would you like to input into your Budget list? ')
+	categoryResponse = input('What category would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal"]
+	#key= Item category name
+	#value = Class Name   
+	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal"}
 	for i in listOfCategories:
 		if categoryResponse in listOfCategories: 
+			# add to the classes 
+			itemToAdd = input("What item would you like to add?: ")
+			costToAdd = input("How much does the item cost? ")
+			quantityToAdd = input("How many would you like to add?: ")
+			## Make call to classes ##
+			## 
+			#itemToAdd = eval(itemToAdd) # to make as a variable 
+			for key in classDictionaryList: 
+				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
+					print(classDictionaryList[key])
+			
 			print("Succesfully added a category for: " + str(categoryResponse))
+			print("You have added " + str(quantityToAdd)+ " " + str(itemToAdd) +"(s)" + " at a price of " + costToAdd + " each" )
 			yesOrNo = input("Do you want to add another item? ")
 			yesOrNo = yesOrNo.lower()
 			yes = "yes"
 			#yesResponses = ["yes","YES","y","YES"]
-			if (yesOrNo == yes) :
+			if (yesOrNo == yes):
 				choseCategory()
 			else: 
 				break
 		else:
 			print("Sorry the category " + str(categoryResponse) + " is not in the list")
 			choseCategory()
+
 
 choseCategory()
 
