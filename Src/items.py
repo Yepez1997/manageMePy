@@ -37,7 +37,7 @@ class Items:
 	### School ###
 	totalSchoolItems = 0 
 	costSchoolItems = 0
-	listSchoolItems = {}
+	listSchool = {}
 	### Custom ###
 	totalItemsCustom = 0
 	totalCustom = 0 
@@ -55,7 +55,7 @@ class Items:
 class Grocery(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self, item, cost, quantity)
-	
+
 		
 		#groceryAdd(self,item,cost,quantity)
 		##More Categories sooner *"beta categories"
@@ -81,11 +81,11 @@ class School(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def schoolAdd(self,item,cost,quantity,datetime):
+	def schoolAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listSchool[item] = cost 
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
-		Items.totalSchoolItems += quantity
+		Items.totalSchoolItems += int(quantity)
 		print("The total amount of school items in your list: ")
 		return Items.totalSchoolItems
 
@@ -102,7 +102,7 @@ class Personal(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def personalAdd(self,item,cost,quantity,datetime):
+	def personalAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listPersonal[item] = cost 
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
@@ -123,7 +123,7 @@ class Housing(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def housingAdd(self,item,cost,quantity, datetime):
+	def housingAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listHousing[item] = cost 
 		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of school items")
@@ -144,7 +144,7 @@ class Custom(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
 
-	def customAdd(self,item,cost,quantity,datetime):
+	def customAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listCustom[item] = cost 
 		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of school items")

@@ -55,7 +55,7 @@ print("A self budgeting appliction")
 print("To start off please chose one of the categories in the list below:")
 print("* Groceries")
 print("* School")
-print("* House")
+print("* Housing")
 print("* Personal")
 print("* Custom")
 
@@ -122,7 +122,7 @@ def choseCategory():
 	currentCategores = ["gList","cList","pList","hList","sList"]
 	
 	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd"} #first letter of categories 
-
+	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
 	#key= Item category name
 	#value = Class Name   
 	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal"}
@@ -148,12 +148,26 @@ def choseCategory():
 			firstLetterOfCategory = categoryResponse[0]
 			for key in startsCategory: 
 				if (firstLetterOfCategory == key):
-					currentAdd = startsCategory[key]
-					addfunction = {"groceryAdd":groceryAdd(),"customAdd":customAdd(),"personalAdd":personalAdd(),"housingAdd":housingAdd(),"schoolAdd":schoolAdd()} #first letter of categories 
-					for key in addfunction:
-						if key == currentAdd:
-							print(currentAdd) # should print a function
-							exec("%s=%d" % (currentAdd, 2)) # to make as a variable 
+					currentAdd = startsCategory[key]  #first letter of categories and VALUE
+					if currentAdd == "groceryAdd":
+						itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+					if currentAdd == "customAdd":
+						itemToAdd.customAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+					if currentAdd == "personalAdd":	
+						itemToAdd.personalAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+					if currentAdd == "schoolAdd":
+						itemToAdd.schoolAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+					if currentAdd == "housingAdd":
+						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+
+
+
+					#for key in addfunction:
+					#	if key == currentAdd:
+					#		print(key)
+							
+							#itemToAdd.addfunction[key]() # should print a function
+							#exec("%s=%d" % (currentAdd, 2)) # to make as a variable 
 							#print(itemToAdd.currentAdd())
 
 
