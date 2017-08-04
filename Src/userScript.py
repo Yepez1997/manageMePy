@@ -119,11 +119,15 @@ class TwoStrings
 def choseCategory():
 	categoryResponse = input('What category would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal"]
+	currentCategores = ["gList","cList","pList","hList","sList"]
+	
+	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd"} #first letter of categories 
+
 	#key= Item category name
 	#value = Class Name   
 	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal"}
 	for i in listOfCategories:
-		if categoryResponse in listOfCategories: 
+		if (categoryResponse in listOfCategories): 
 			# add to the classes 
 			itemToAdd = input("What item would you like to add?: ")
 			costToAdd = input("How much does the item cost? ")
@@ -135,14 +139,32 @@ def choseCategory():
 			print(itemToAdd)
 			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable 
 			print(itemToAdd) # we should get two if the number changes 
+
 			for key in classDictionaryList: 
 				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
-			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd)
-			###################################
+			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
+			## need to know what catergories to add once in the list 
+			firstLetterOfCategory = categoryResponse[0]
+			for key in startsCategory: 
+				if (firstLetterOfCategory == key):
+					currentAdd = startsCategory[key]
+					addfunction = {"groceryAdd":groceryAdd(),"customAdd":customAdd(),"personalAdd":personalAdd(),"housingAdd":housingAdd(),"schoolAdd":schoolAdd()} #first letter of categories 
+					for key in addfunction:
+						if key == currentAdd:
+							print(currentAdd) # should print a function
+							exec("%s=%d" % (currentAdd, 2)) # to make as a variable 
+							#print(itemToAdd.currentAdd())
+
+
+
+			#firstLetterOfCategorie = itemToAdd.item[0]
+
 			
+			###################################
+			## Works !!!!!!!!! CREATES CLASSES 
 			print("Succesfully added a category for: " + str(categoryResponse))
-			print("You have added " + str(quantityToAdd)+ " " + str(itemToAdd) +"(s)" + " at a price of " + costToAdd + " each" )
+			print("You have added " + str(itemToAdd.quantity)+ " " + str(itemToAdd.item) +"(s)" + " at a price of " + costToAdd + " each" )
 			yesOrNo = input("Do you want to add another item? ")
 			yesOrNo = yesOrNo.lower()
 			yes = "yes"
