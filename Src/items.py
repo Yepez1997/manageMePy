@@ -46,6 +46,9 @@ class Items:
 	totalItemsRestaurants = 0
 	totalRestaurants = 0 
 	listRestaurants = {}
+	### TOTALS OF EVERYTHING ###
+	totalItems = 0 
+	listItems = {}
 
 
 
@@ -68,8 +71,10 @@ class Grocery(Items):
 	def groceryAdd(self, item, cost, quantity): ## remember i added datetime 
 		self.datetime = datetime.datetime
 		self.listGroceries[item] = cost
+		self.listItems[item] = cost
 		print("You have added: " + str(quantity) + " " + item +"(s)"  + " to your list of groceries") 
 		Items.totalItemsGroceries += int(quantity)
+		Items.totalItems += int(quantity)
 		print("The total amount of groceries in your list: " + str(Items.totalItemsGroceries)) 
 		return Items.totalItemsGroceries
 		
@@ -90,8 +95,10 @@ class School(Items):
 	def schoolAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listSchool[item] = cost 
+		self.listItems[item] = cost
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of school items")
 		Items.totalSchoolItems += int(quantity)
+		Items.totalItems += int(quantity)
 		print("The total amount of school items in your list: " + str(Items.totalSchoolItems))
 		return Items.totalSchoolItems
 
@@ -111,8 +118,10 @@ class Personal(Items):
 	def personalAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listPersonal[item] = cost 
+		self.listItems[item] = cost
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of personal items")
 		Items.totalItemsPersonal += int(quantity)
+		Items.totalItems += int(quantity)
 		print("The total amount of school items in your list: " + str(Items.totalItemsPersonal))
 		return Items.totalItemsPersonal
 
@@ -132,8 +141,10 @@ class Housing(Items):
 	def housingAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listHousing[item] = cost 
+		self.listItems[item] = cost
 		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of housing items")
 		Items.totalItemsHousing += int(quantity)
+		Items.totalItems += int(quantity)
 		print("The total amount of school items in your list: " + str(Items.totalItemsHousing))
 		return Items.totalItemsHousing
 
@@ -153,8 +164,10 @@ class Custom(Items):
 	def customAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listCustom[item] = cost 
+		self.listItems[item] = cost
 		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of custom items")
-		Items.totalItemsCustom += quantity
+		Items.totalItemsCustom += int(quantity)
+		Items.totalItems += int(quantity)
 		print("The total amount of school items in your list: " + str(Items.totalItemsCustom))
 		return Items.totalItemsCustom
 
@@ -174,8 +187,10 @@ class Restaurants(Items):
 	def restaurantsAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listRestaurants[item] = cost 
+		self.listItems[item] = cost
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of restaurants items")
 		Items.totalRestaurantsItems += int(quantity)
+		Items.totalItems += int(quantity)
 		print("The total amount of restaurants items in your list: " + str(Items.totalItemsRestaurants))
 		return Items.totalRestaurantsItems
 
@@ -186,6 +201,8 @@ class Restaurants(Items):
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
+
+
 
 
 	# Purpose of this function is to check whether the individual 

@@ -38,13 +38,16 @@ print(totals.customIter())
 print(totals.Totals())
 '''
 import numpy as np
+#from pyspark.sql.types import StructType
 ## imported classes from file items.py #######
+from types import *
 from items import Items 
 from items import Grocery
 from items import Personal
 from items import Custom 
 from items import School 
 from items import Housing 
+from fullstats import Fullstats
 #from items import Totals 
 ###############################################
 
@@ -131,15 +134,18 @@ def choseCategory():
 		if (categoryResponse in listOfCategories): 
 			# add to the classes 
 			itemToAdd = input("What item would you like to add?: ")
+			#assert type(itemToAdd) is StringType, "Item is not a string: %r" % itemToAdd
 			costToAdd = input("How much does the item cost? ")
+			#assert type(costToAdd) is IntType, "cost is not an integer: %r" % costToAdd
 			quantityToAdd = input("How many would you like to add?: ")
+			#assert type(quantityToAdd) is IntType, "cost is not an integer: %r" % quantityToAdd
 			## Make call to classes #########
 
 			###### Take a close look at this from stack over flow ####### 
 			#      exec("%s = %d" % (x,2)) 
-			print(itemToAdd)
+			#print(itemToAdd) USE TO DEBUG 
 			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable 
-			print(itemToAdd) # we should get two if the number changes 
+			#print(itemToAdd) # we should get two if the number changes 
 
 			for key in classDictionaryList: 
 				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
@@ -182,14 +188,21 @@ def choseCategory():
 			## Works !!!!!!!!! CREATES CLASSES 
 			print("Succesfully added a category for: " + str(categoryResponse))
 			print("You have added " + str(itemToAdd.quantity)+ " " + str(itemToAdd.item) +"(s)" + " at a price of " + costToAdd + " each" )
-			yesOrNo = input("Do you want to add another item? ")
+			yesOrNo = input("Do you want to add another item? (yes/no) ")
 			yesOrNo = yesOrNo.lower()
 			yes = "yes"
+			yes = yes.lower()
+			no = "no"
+			no = no.lower()
 			#yesResponses = ["yes","YES","y","YES"]
 			if (yesOrNo == yes):
 				choseCategory()
-			else: 
+			if (yesOrNo == no):
+				print("Okay, here is a complete list of your items: ")
+				stats = Fullstats("Complete List",1,1) #defaulted to 1 
+				print(stats.totalsList())
 				break
+			break
 		else:
 			print("Sorry the category " + str(categoryResponse) + " is not in the list")
 			choseCategory()
