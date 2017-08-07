@@ -9,28 +9,27 @@ listCategories = ["Restaurants", "School", "Housing","Grocery","Personal", "Cust
 ### Groceries ### 
 groceryItems = []
 groceryCost = []
-groceryQuantity = [] 
+groceryQuanity = [] 
 ### Restaurants ### 
 restaurantsItems = []
 restaurantsCost = []
-restaurantsQuantity = [] 
+restaurantsQuanity = [] 
 ### School ###
 schoolItems = [] 
 schoolCost = []
-schoolQuantity = []
+schoolQuanity = []
 ### Housing ###
 housingItems =[]
 housingCost = [] 
-housingQuantity =[]
+housingQuanity =[]
 ### Personal ### 
 personalItems = [] 
 personalCost = []
-personalQuantity = [] 
+personalQuanity = [] 
 ### Custom ### 
 customItems = [] 
 customCost = [] 
-customQuantity = [] 
-
+customQuanity = []
 
 
 

@@ -39,6 +39,7 @@ print(totals.Totals())
 '''
 import numpy as np
 from excel import * 
+import sys
 #from pyspark.sql.types import StructType
 ## imported classes from file items.py #######
 from types import *
@@ -121,7 +122,54 @@ class TwoStrings
 
 
 """
+groceryItems = []
+groceryCost = []
+groceryQuanity = [] 
+### Restaurants ### 
+restaurantsItems = []
+restaurantsCost = []
+restaurantsQuanity = [] 
+### School ###
+schoolItems = [] 
+schoolCost = []
+schoolQuanity = []
+### Housing ###
+housingItems =[]
+housingCost = [] 
+housingQuanity =[]
+### Personal ### 
+personalItems = [] 
+personalCost = []
+personalQuanity = [] 
+### Custom ### 
+customItems = [] 
+customCost = [] 
+customQuanity = []
+
+
+
 def choseCategory():
+	global groceryItems
+	global groceryCost
+	global groceryQuanity
+	global restaurantsItems
+	global restaurantsCost
+	global restaurantsQuanity
+	global schoolItems
+	global schoolCost
+	global schoolQuanity
+	global housingItems
+	global housingCost 
+	global housingQuanity
+	global personalItems
+	global personalCost
+	global personalQuanity
+	global customItems 
+	global customCost 
+	global customQuanity
+
+
+
 	categoryResponse = input('What category would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal","restaurants"]
 	currentCategores = ["gList","cList","pList","hList","sList","rList"]
@@ -236,8 +284,9 @@ def choseCategory():
 				print("Okay, here is a complete list of your items: ")
 				stats = Fullstats("Complete List",1,1) #defaulted to 1 
 				print(stats.totalsList())
-				break
-			break
+
+				sys.exit() ## terminates 
+				## break only went to the next line
 		else:
 			print("Sorry the category " + str(categoryResponse) + " is not in the list")
 			choseCategory()
