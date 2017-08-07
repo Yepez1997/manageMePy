@@ -37,9 +37,13 @@ print(totals.schoolIter())
 print(totals.customIter())
 print(totals.Totals())
 '''
-import numpy as np
-from excel import * 
 import sys
+import numpy as np
+import pandas as pd
+from pandas import DataFrame 
+from excel import * 
+
+
 #from pyspark.sql.types import StructType
 ## imported classes from file items.py #######
 from types import *
@@ -122,6 +126,9 @@ class TwoStrings
 
 
 """
+
+
+## globals are in excel.py
 groceryItems = []
 groceryCost = []
 groceryQuanity = [] 
@@ -146,8 +153,6 @@ customItems = []
 customCost = [] 
 customQuanity = []
 
-
-
 def choseCategory():
 	global groceryItems
 	global groceryCost
@@ -167,8 +172,6 @@ def choseCategory():
 	global customItems 
 	global customCost 
 	global customQuanity
-
-
 
 	categoryResponse = input('What category would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal","restaurants"]
@@ -284,7 +287,9 @@ def choseCategory():
 				print("Okay, here is a complete list of your items: ")
 				stats = Fullstats("Complete List",1,1) #defaulted to 1 
 				print(stats.totalsList())
-
+				df = DataFrame({'Grocery Items': groceryItems})
+				## creates excel
+				df.to_excel('test.xlsx', sheet_name='sheet1', index=False)
 				sys.exit() ## terminates 
 				## break only went to the next line
 		else:
