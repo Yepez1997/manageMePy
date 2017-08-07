@@ -38,6 +38,7 @@ print(totals.customIter())
 print(totals.Totals())
 '''
 import numpy as np
+from excel import * 
 #from pyspark.sql.types import StructType
 ## imported classes from file items.py #######
 from types import *
@@ -157,17 +158,51 @@ def choseCategory():
 				if (firstLetterOfCategory == key):
 					currentAdd = startsCategory[key]  #first letter of categories and VALUE
 					if currentAdd == "groceryAdd":
+						## Item, Cost, Quantity 
 						itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						groceryItems.append(itemToAdd.item)
+						groceryCost.append(itemToAdd.cost)
+						groceryQuanity.append(itemToAdd.quantity)
+
+
 					if currentAdd == "customAdd":
+						# Item, Cost, Quantity 
 						itemToAdd.customAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						customItems.append(itemToAdd.item)
+						customCost.append(itemToAdd.cost)
+						customQuanity.append(itemToAdd.quantity)
+
 					if currentAdd == "personalAdd":	
+						# Item, Cost, Quantity 
 						itemToAdd.personalAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						personalItems.append(itemToAdd.item)
+						personalCost.append(itemToAdd.cost)
+						personalQuanity.append(itemToAdd.quantity)
+
 					if currentAdd == "schoolAdd":
+						# Item, Cost, Quantity 
 						itemToAdd.schoolAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						schoolItems.append(itemToAdd.item)
+						schoolCost.append(itemToAdd.cost)
+						schoolQuanity.append(itemToAdd.quantity)
 					if currentAdd == "housingAdd":
+						# Item, Cost, Quantity 
 						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						housingItems.append(itemToAdd.item)
+						housingCost.append(itemToAdd.cost)
+						housingQuanity.append(itemToAdd.quantity)
 					if currentAdd == "restaurantsAdd":
+						# Item, Cost, Quantity 
 						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						restaurantsItems.append(itemToAdd.item)
+						restaurantsCost.append(itemToAdd.cost)
+						restaurantsQuanity.append(itemToAdd.quantity)
 
 
 
