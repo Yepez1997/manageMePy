@@ -287,9 +287,54 @@ def choseCategory():
 				print("Okay, here is a complete list of your items: ")
 				stats = Fullstats("Complete List",1,1) #defaulted to 1 
 				print(stats.totalsList())
-				df = DataFrame({'Grocery Items': groceryItems})
+				#listCat = DataFrame
 				## creates excel
-				df.to_excel('test.xlsx', sheet_name='sheet1', index=False)
+				## need to create series to allow to put into excel 
+				## also to prevent Value errror - array sizing 
+				#############
+				##   key   ##
+				##1 = items##
+				##2 = cost ##
+				##3 = quant##
+				#############
+				groceries1 = pd.Series(groceryItems, name='Grocery Items')
+				groceries2 = pd.Series(groceryCost, name='Grocery Cost')
+				groceries3 = pd.Series(groceryQuanity, name='Grocery Quanity')
+
+				housing1 = pd.Series(housingItems,name='Housing Items')
+				housing2 = pd.Series(housingCost, name='Housing Cost')
+				housing3 = pd.Series(housingQuanity,name ='Housing Quanity')
+
+				personal1 = pd.Series(personalItems,name='Personal Items')
+				personal2 = pd.Series(personalCost, name='Personal Cost')
+				personal3 = pd.Series(personalQuanity, name= 'Personal Quanity')
+
+				custom1 = pd.Series(customItems, name='Custom Items')
+				custom2 = pd.Series(customCost, name='Custom Cost')
+				custom3 = pd.Series(customQuanity, name='Custom Quanity')
+
+				school1 = pd.Series(schoolItems, name='School Items')
+				school2 = pd.Series(schoolCost, name='School Cost')
+				school3 = pd.Series(schoolQuanity, name='School Quanity')
+
+				restau1 = pd.Series(restaurantsItems, name='Restaurants Items')
+				restau2 = pd.Series(restaurantsCost, name='Restaurants Cost')
+				restau3 = pd.Series(restaurantsQuanity, name='Restaurants Quanity')
+
+				#df = pd.DataFrame(({'Grocery Items': groceryItems, 'Grocery Cost': groceryCost,'Grocery Quanity':groceryQuanity,
+				#	'Housing Items': housingItems,'Housing Cost': housingCost, 'Housing Quanity':housingQuanity,
+				#	'School Items': schoolItems, 'School Cost': schoolCost, 'School Quanity': schoolQuanity,
+				#	'Restaurants Items': restaurantsItems, 'Restaurants Cost': restaurantsCost, 'Restaurants Quanity': restaurantsQuanity,
+				#	'Personal Items': personalItems, 'Personal Cost': personalCost, 'Personal Quanity': personalQuanity,
+				#	'Custom Items': customItems, 'Custom Cost': customCost, 'Custom Quanity': customQuanity, }))
+				#df.transpose()
+				df = pd.concat([groceries1,groceries2,groceries3
+								,housing1, housing2, housing3
+								,personal1, personal2, personal3
+								,custom1, custom2, custom3 
+								,school1, school2, school3
+								,restau1,restau2,restau3 ], axis=1)
+				df.to_excel('manageme.xlsx', sheet_name='sheet1', index=False)
 				sys.exit() ## terminates 
 				## break only went to the next line
 		else:
