@@ -425,6 +425,30 @@ def choseCategory():
 				restau2 = pd.Series(restaurantsCost, name='Restaurants Cost')
 				restau3 = pd.Series(restaurantsQuanity, name='Restaurants Quanity')
 
+				travel1 = pd.Series(travelItems, name='Travel Items')
+				travel2 = pd.Series(travelCost, name='Travel Cost')
+				travel3 = pd.Series(travelQuanity, name='Travel Quanity')
+
+				bills1 = pd.Series(billsItems, name='Bill Items')
+				bills2 = pd.Series(billsCost, name='Bill Cost')
+				bills3 = pd.Series(billsQuanity, name='Bill Quanity')
+
+				transportation1 = pd.Series(transportionItems, name='Transportation Items')
+				transportation2 = pd.Series(transportationCost, name='Transportation Cost')
+				transportation3 = pd.Series(transportationQuanity, name='Transportation Quanity')
+
+				util1 = pd.Series(utilitiesItems, name='Utilities Items')
+				util2 = pd.Series(utilitiesCost, name='Utilities Cost')
+				util3 = pd.Series(utilitiesQuanity, name='Utilities Quanity')
+
+				clothing1 = pd.Series(clothingItems, name='Clothing Items')
+				clothing2 = pd.Series(clothingCost, name='Clothing Cost')
+				clothing3 = pd.Series(clothingQuanity, name='Clothing Quanity')
+
+				hyg1 = pd.Series(hygieneItems, name='Hygiene Items')
+				hyg2 = pd.Series(hyieneCost, name='Hygiene Cost')
+				hyg3 = pd.Series(hygieneQuanity, name='Hygiene Quanity')
+
 				#df = pd.DataFrame(({'Grocery Items': groceryItems, 'Grocery Cost': groceryCost,'Grocery Quanity':groceryQuanity,
 				#	'Housing Items': housingItems,'Housing Cost': housingCost, 'Housing Quanity':housingQuanity,
 				#	'School Items': schoolItems, 'School Cost': schoolCost, 'School Quanity': schoolQuanity,
@@ -438,8 +462,15 @@ def choseCategory():
 								,personal1, personal2, personal3
 								,custom1, custom2, custom3 
 								,school1, school2, school3
-								,restau1,restau2,restau3 ], axis=1)
-				df.to_excel('manageme.xlsx', sheet_name='sheet1', index=False)
+								,restau1,restau2,restau3
+								,bills1, bills2, bills3
+								,transportation1, transportation2, transportation3
+								,util1, util2, util3
+								,clothing1, clothing2, clothing3
+								,hyg1, hyg2, hyg3
+								,travel1, travel2, travel3 ], axis=1)
+
+				df.to_excel('managemeTest.xlsx', sheet_name='sheet1', index=False)
 				sys.exit() ## terminates 
 				## break only went to the next line
 		else:
