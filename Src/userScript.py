@@ -188,6 +188,7 @@ hygieneQuanity = []
 
 
 def choseCategory():
+
 	global groceryItems
 	global groceryCost
 	global groceryQuanity
@@ -229,6 +230,7 @@ def choseCategory():
 	listOfCategories = ["groceries","custom","school","housing","personal","restaurants","bills","travel","clothing","hygiene","transportation","utilities"]
 	currentCategores = ["gList","cList","pList","hList","sList","rList","xList","yList","zList","tList","uList","bList"]
 	
+	## MAKE SPECIFIC CASES ## 
 	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd", "b":"billsAdd",
 						"u":"utilitiesAdd","t":"travelAdd","t":"transportationAdd","c":"clothingAdd","h":"hygieneAdd"} #first letter of categories 
 	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
