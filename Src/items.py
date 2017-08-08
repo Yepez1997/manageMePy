@@ -46,6 +46,23 @@ class Items:
 	totalItemsRestaurants = 0
 	totalRestaurants = 0 
 	listRestaurants = {}
+	## **** needs  to be in  a clasee 
+	### Bills ###
+	totalItemsBills = 0
+	totalBills = 0 
+	listBills = {}
+	### Utilities ### 
+	totalItemsUtilities = 0
+	totalUtilities = 0 
+	listUtilities = {}
+	###  Travel ### 
+	totalItemsTravel = 0
+	totalTravel = 0 
+	listTravel = {}
+	### Transporatation ### 
+	totalItemsTransportation = 0
+	totalTransportation = 0 
+	listTransportation = {}
 	### TOTALS OF EVERYTHING ###
 	totalItems = 0 
 	listItems = {}
@@ -122,7 +139,7 @@ class Personal(Items):
 		print("You have added: " + str(quantity) + " " + item +  "(s)" + " to your list of personal items")
 		Items.totalItemsPersonal += int(quantity)
 		Items.totalItems += int(quantity)
-		print("The total amount of school items in your list: " + str(Items.totalItemsPersonal))
+		print("The total amount of personal items in your list: " + str(Items.totalItemsPersonal))
 		return Items.totalItemsPersonal
 
 	def pList(self):
@@ -137,7 +154,7 @@ class Personal(Items):
 class Housing(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)
-
+		##****** change school to housing 
 	def housingAdd(self,item,cost,quantity):
 		self.datetime = datetime.datetime
 		self.listHousing[item] = cost 
@@ -145,7 +162,7 @@ class Housing(Items):
 		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of housing items")
 		Items.totalItemsHousing += int(quantity)
 		Items.totalItems += int(quantity)
-		print("The total amount of school items in your list: " + str(Items.totalItemsHousing))
+		print("The total amount of housing items in your list: " + str(Items.totalItemsHousing))
 		return Items.totalItemsHousing
 
 	def hList(self):
@@ -168,7 +185,7 @@ class Custom(Items):
 		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of custom items")
 		Items.totalItemsCustom += int(quantity)
 		Items.totalItems += int(quantity)
-		print("The total amount of school items in your list: " + str(Items.totalItemsCustom))
+		print("The total amount of custom items in your list: " + str(Items.totalItemsCustom))
 		return Items.totalItemsCustom
 
 	def cList(self):
@@ -202,7 +219,98 @@ class Restaurants(Items):
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost
 
+#***** Bills Class *****#
+class Bills(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+		##****** change school to housing 
+	def billsAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listBills[item] = cost 
+		self.listItems[item] = cost
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of bills")
+		Items.totalItemsBills += int(quantity)
+		Items.totalItems += int(quantity)
+		print("The total amount of bills in your list: " + str(Items.totalItemsBills))
+		return Items.totalItemsBills
 
+	def bList(self):
+		print("Your current list: ")
+		for key in self.listBills:
+			print(key, self.listBills[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+#***** Utilities Class *****#
+class Utilities(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+		##****** change school to housing 
+	def utilitiesAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listUtilities[item] = cost 
+		self.listItems[item] = cost
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of utilities items")
+		Items.totalItemsUtilities += int(quantity)
+		Items.totalItems += int(quantity)
+		print("The total amount of utilities items in your list: " + str(Items.totalItemsHousing))
+		return Items.totalItemsUtilities
+
+	def uList(self):
+		print("Your current list: ")
+		for key in self.listUtilities:
+			print(key, self.listUtilities[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+#***** Travel Class *****#
+class Travel(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+		##****** change school to housing 
+	def travelAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listTravel[item] = cost 
+		self.listItems[item] = cost
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of travel items")
+		Items.totalItemsTravel += int(quantity)
+		Items.totalItems += int(quantity)
+		print("The total amount of travel items in your list: " + str(Items.totalItemsTravel))
+		return Items.totalItemsTravel
+
+	def tList(self):
+		print("Your current list: ")
+		for key in self.listTravel:
+			print(key, self.listTravel[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+#***** Transportation Class *****#
+class Transportation(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+		##****** change school to housing 
+	def transportationAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listTransportation[item] = cost 
+		self.listItems[item] = cost
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of transportation items")
+		Items.totalItemsTransportation += int(quantity)
+		Items.totalItems += int(quantity)
+		print("The total amount of transportation items in your list: " + str(Items.totalItemsTransportation))
+		return Items.totalItemsTransportation
+
+	#z list == last
+	def zList(self):
+		print("Your current list: ")
+		for key in self.listTransportation:
+			print(key, self.listTransportation[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
 
 
 	# Purpose of this function is to check whether the individual 
