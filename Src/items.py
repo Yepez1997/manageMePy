@@ -63,6 +63,14 @@ class Items:
 	totalItemsTransportation = 0
 	totalTransportation = 0 
 	listTransportation = {}
+	### Clothing ### 
+	totalItemsClothing = 0
+	totalClothing = 0 
+	listClothing = {}
+	### Hygiene ### 
+	totalItemsHygiene = 0
+	totalHygiene = 0 
+	listHygiene = {}
 	### TOTALS OF EVERYTHING ###
 	totalItems = 0 
 	listItems = {}
@@ -308,6 +316,54 @@ class Transportation(Items):
 		print("Your current list: ")
 		for key in self.listTransportation:
 			print(key, self.listTransportation[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+#***** Clothing Class *****#
+class Clothing(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+		##****** change school to housing 
+	def clothingAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listClothing[item] = cost 
+		self.listItems[item] = cost
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of clothing items")
+		Items.totalItemsClothing += int(quantity)
+		Items.totalItems += int(quantity)
+		print("The total amount of clothing items in your list: " + str(Items.totalItemsTransportation))
+		return Items.totalItemsClothing
+
+	#y list == clothing
+	def yList(self):
+		print("Your current list: ")
+		for key in self.listClothing:
+			print(key, self.listClothing[key])
+		print("-----Current-----")
+		print("Item", "Quantity","Total Cost")
+		return self.item, self.quantity, self.quantity * self.cost
+
+#***** Hygiene Class *****#
+class Hygiene(Items):
+	def __init__(self,item,cost,quantity):
+		Items.__init__(self,item,cost,quantity)
+		##****** change school to housing 
+	def hygieneAdd(self,item,cost,quantity):
+		self.datetime = datetime.datetime
+		self.listHygiene[item] = cost 
+		self.listItems[item] = cost
+		print("You have added: " + str(quantity) + " " + item + "(s)" + " to your list of hygiene items")
+		Items.totalItemsHygiene += int(quantity)
+		Items.totalItems += int(quantity)
+		print("The total amount of hygiene items in your list: " + str(Items.totalItemsHygiene))
+		return Items.totalItemsHygiene
+
+	#x list == hygiene
+	def xList(self):
+		print("Your current list: ")
+		for key in self.listHygiene:
+			print(key, self.listHygiene[key])
 		print("-----Current-----")
 		print("Item", "Quantity","Total Cost")
 		return self.item, self.quantity, self.quantity * self.cost

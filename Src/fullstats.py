@@ -15,7 +15,12 @@ from items import Personal
 from items import Custom 
 from items import School 
 from items import Housing 
-
+from items import Bills 
+from items import Utilities 
+from items import Travel
+from items import Transportation
+from items import Clothing 
+from items import Hygiene 
 
 
 class Fullstats(Items): ## Should inherit items and account info or the class Totals

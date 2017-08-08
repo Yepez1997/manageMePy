@@ -53,6 +53,14 @@ from items import Personal
 from items import Custom 
 from items import School 
 from items import Housing 
+from items import Bills 
+from items import Utilities 
+from items import Travel
+from items import Transportation
+from items import Clothing 
+from items import Hygiene 
+
+
 from fullstats import Fullstats
 #from items import Totals 
 ###############################################
@@ -62,12 +70,12 @@ print("######################################################################")
 print("Welcome to ManageMe!")
 print("A self budgeting appliction")
 print("To start off please chose one of the categories in the list below:")
-print("* Groceries")
-print("* School")
-print("* Housing")
-print("* Personal")
-print("* Custom")
-print("* Restaurants")
+print("* Groceries     * Bills")
+print("* School        * Utilities")
+print("* Housing       * Travel")
+print("* Personal      * Transportation")
+print("* Custom        * Clothing")
+print("* Restaurants   * Hygiene")
 
 
 ## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess
@@ -152,6 +160,32 @@ personalQuanity = []
 customItems = [] 
 customCost = [] 
 customQuanity = []
+### Bills ###
+billsItems = [] 
+billsCost = [] 
+billsQuanity = []
+### Utilities ###
+utilitiesItems = [] 
+utilitiesCost = [] 
+utilitiesQuanity = []
+### Travel ###
+travelItems = [] 
+travelCost = [] 
+travelQuanity = []
+### Transportation ###
+transportationItems = [] 
+transportationCost = [] 
+transportationQuanity = []
+### Clothing ###
+clothingItems = [] 
+clothingCost = [] 
+clothingQuanity = []
+### Hygiene ###
+hygieneItems = [] 
+hygienCost = [] 
+hygieneQuanity = []
+
+
 
 def choseCategory():
 	global groceryItems
@@ -172,16 +206,36 @@ def choseCategory():
 	global customItems 
 	global customCost 
 	global customQuanity
+	global billsItems
+	global billsCost
+	global billsQuanity
+	global utilitiesItems
+	global utilitiesCost
+	global utilitiesQuanity
+	global travelItems
+	global travelCost
+	global travelQuanity
+	global transportationItems
+	global transportationCost
+	global transportationQuanity
+	global clothingItems
+	global clothingCost
+	global clothingQuanity
+	global hygieneItems
+	global hygienCost
+	global hygieneQuanity
 
 	categoryResponse = input('What category would you like to input into your Budget list? ')
-	listOfCategories = ["groceries","custom","school","housing","personal","restaurants"]
-	currentCategores = ["gList","cList","pList","hList","sList","rList"]
+	listOfCategories = ["groceries","custom","school","housing","personal","restaurants","bills","travel","clothing","hygiene","transportation","utilities"]
+	currentCategores = ["gList","cList","pList","hList","sList","rList","xList","yList","zList","tList","uList","bList"]
 	
-	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd()"} #first letter of categories 
+	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd", "b":"billsAdd",
+						"u":"utilitiesAdd","t":"travelAdd","t":"transportationAdd","c":"clothingAdd","h":"hygieneAdd"} #first letter of categories 
 	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
 	#key= Item category name
 	#value = Class Name   
-	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants"}
+	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants",
+		"bills":"Bills", "utilities":"Utilities","travel":"Travel","transportation":"Transportation","clothing":"Clothing","hyiene":"Hygiene"}
 	for i in listOfCategories:
 		if (categoryResponse in listOfCategories): 
 			# add to the classes 
@@ -204,7 +258,10 @@ def choseCategory():
 					classKey = eval(classDictionaryList[key])
 			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list 
-			firstLetterOfCategory = categoryResponse[0]
+			# *******************************************************
+			## THIS NEEDS TO BE FIXED 
+			firstLetterOfCategory = categoryResponse[0] ## THIS NEEDS TO BE FIXED 
+			## THIS NEEDS TO BE FIXED 
 			for key in startsCategory: 
 				if (firstLetterOfCategory == key):
 					currentAdd = startsCategory[key]  #first letter of categories and VALUE
@@ -255,6 +312,53 @@ def choseCategory():
 						restaurantsCost.append(itemToAdd.cost)
 						restaurantsQuanity.append(itemToAdd.quantity)
 
+					if currentAdd == "billsAdd":
+						# Item, Cost, Quantity 
+						itemToAdd.billsAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						billsItems.append(itemToAdd.item)
+						billsCost.append(itemToAdd.cost)
+						billsQuanity.append(itemToAdd.quantity)
+
+					if currentAdd == "utilitiesAdd":
+						# Item, Cost, Quantity 
+						itemToAdd.utilitiesAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						utilitiesItems.append(itemToAdd.item)
+						utilitiesCost.append(itemToAdd.cost)
+						utilitiesQuanity.append(itemToAdd.quantity)
+
+					if currentAdd == "travelAdd":
+						# Item, Cost, Quantity 
+						itemToAdd.travelAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						travelItems.append(itemToAdd.item)
+						travelCost.append(itemToAdd.cost)
+						travelQuanity.append(itemToAdd.quantity)
+
+					if currentAdd == "transportationAdd":
+						# Item, Cost, Quantity 
+						itemToAdd.transportationAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						transportationItems.append(itemToAdd.item)
+						transportationCost.append(itemToAdd.cost)
+						transportationQuanity.append(itemToAdd.quantity)
+
+					if currentAdd == "clothingAdd":
+						# Item, Cost, Quantity 
+						itemToAdd.clothingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						clothingItems.append(itemToAdd.item)
+						clothingCost.append(itemToAdd.cost)
+						clothingQuanity.append(itemToAdd.quantity)
+
+					if currentAdd == "hygieneAdd":
+						# Item, Cost, Quantity 
+						itemToAdd.hygieneAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+						hygieneItems.append(itemToAdd.item)
+						hygieneCost.append(itemToAdd.cost)
+						hygieneQuanity.append(itemToAdd.quantity)
 
 
 					#for key in addfunction:
@@ -328,6 +432,7 @@ def choseCategory():
 				#	'Personal Items': personalItems, 'Personal Cost': personalCost, 'Personal Quanity': personalQuanity,
 				#	'Custom Items': customItems, 'Custom Cost': customCost, 'Custom Quanity': customQuanity, }))
 				#df.transpose()
+				## Works ##
 				df = pd.concat([groceries1,groceries2,groceries3
 								,housing1, housing2, housing3
 								,personal1, personal2, personal3
