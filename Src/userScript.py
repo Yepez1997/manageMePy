@@ -182,7 +182,7 @@ clothingCost = []
 clothingQuanity = []
 ### Hygiene ###
 hygieneItems = [] 
-hygienCost = [] 
+hygieneCost = [] 
 hygieneQuanity = []
 
 
@@ -258,7 +258,7 @@ def choseCategory():
 			for key in classDictionaryList: 
 				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
-			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
+					itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list 
 			# *******************************************************
 			## THIS NEEDS TO BE FIXED 
@@ -435,7 +435,7 @@ def choseCategory():
 				bills2 = pd.Series(billsCost, name='Bill Cost')
 				bills3 = pd.Series(billsQuanity, name='Bill Quanity')
 
-				transportation1 = pd.Series(transportionItems, name='Transportation Items')
+				transportation1 = pd.Series(transportationItems, name='Transportation Items')
 				transportation2 = pd.Series(transportationCost, name='Transportation Cost')
 				transportation3 = pd.Series(transportationQuanity, name='Transportation Quanity')
 
@@ -448,7 +448,7 @@ def choseCategory():
 				clothing3 = pd.Series(clothingQuanity, name='Clothing Quanity')
 
 				hyg1 = pd.Series(hygieneItems, name='Hygiene Items')
-				hyg2 = pd.Series(hyieneCost, name='Hygiene Cost')
+				hyg2 = pd.Series(hygieneCost, name='Hygiene Cost')
 				hyg3 = pd.Series(hygieneQuanity, name='Hygiene Quanity')
 
 				#df = pd.DataFrame(({'Grocery Items': groceryItems, 'Grocery Cost': groceryCost,'Grocery Quanity':groceryQuanity,
