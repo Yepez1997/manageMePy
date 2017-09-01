@@ -13,6 +13,7 @@
 
 ## Uses dictionary to store data 
 ## {Key=Item, Value=Cost} *Items should update/ increment if same 
+## should comlpete by the end of yr 
 
 import datetime
 

@@ -59,7 +59,10 @@ from items import Travel
 from items import Transportation
 from items import Clothing 
 from items import Hygiene 
-
+## ISSUES input must be one variable - convert that 
+## also need to iterate through all total items 
+## make sure the input the is put in is the right time 
+## Specialize each category to be user friendly
 
 from fullstats import Fullstats
 #from items import Totals 
@@ -76,7 +79,7 @@ print("* Housing       * Travel")
 print("* Personal      * Transportation")
 print("* Custom        * Clothing")
 print("* Restaurants   * Hygiene")
-
+print("######################################################################")
 
 ## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess
 ## If two words are compared and there is a 60 perecent or greater between the words then 
@@ -182,7 +185,7 @@ clothingCost = []
 clothingQuanity = []
 ### Hygiene ###
 hygieneItems = [] 
-hygienCost = [] 
+hygieneCost = [] 
 hygieneQuanity = []
 
 
@@ -223,7 +226,7 @@ def choseCategory():
 	global clothingCost
 	global clothingQuanity
 	global hygieneItems
-	global hygienCost
+	global hygieneCost
 	global hygieneQuanity
 
 	categoryResponse = input('What category would you like to input into your Budget list? ')
@@ -231,8 +234,12 @@ def choseCategory():
 	currentCategores = ["gList","cList","pList","hList","sList","rList","xList","yList","zList","tList","uList","bList"]
 	
 	## MAKE SPECIFIC CASES ## 
+	### RECALL THISS ########
+	# y == clothing 
+	# x == hygiene 
+	# z == transportation 
 	startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd", "b":"billsAdd",
-						"u":"utilitiesAdd","t":"travelAdd","t":"transportationAdd","c":"clothingAdd","h":"hygieneAdd"} #first letter of categories 
+						"u":"utilitiesAdd","t":"travelAdd","z":"zransportationAdd","y":"ylothingAdd","x":"xygieneAdd"} #first letter of categories 
 	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
 	#key= Item category name
 	#value = Class Name   
@@ -255,112 +262,156 @@ def choseCategory():
 			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable 
 			#print(itemToAdd) # we should get two if the number changes 
 
+			## keep in mind 
+			# y == clothing 
+			# x == hygiene 
+			# z == transportation 
+
+			########### IMPORTANT INFORMATION ###########
 			for key in classDictionaryList: 
 				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
 			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list 
 			# *******************************************************
-			## THIS NEEDS TO BE FIXED 
+		
+
+
+
+			## THIS NEEDS TO BE FIXED  
+			## neccesary to have to iterate throught every letter 
+			## what if we take the first 5 letters and compare to strings that would be used 
 			firstLetterOfCategory = categoryResponse[0] ## THIS NEEDS TO BE FIXED 
-			## THIS NEEDS TO BE FIXED 
-			for key in startsCategory: 
-				if (firstLetterOfCategory == key):
-					currentAdd = startsCategory[key]  #first letter of categories and VALUE
-					if currentAdd == "groceryAdd":
-						## Item, Cost, Quantity 
-						itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						groceryItems.append(itemToAdd.item)
-						groceryCost.append(itemToAdd.cost)
-						groceryQuanity.append(itemToAdd.quantity)
+			#firstTwo = categoryResponse[0:2]
+			#firstThree = categoryResponse[0:3] #recal last number is not inclusive 
+			#firstFour = categoryResponse[0:4]
+			#firstFiveLettersOfResponse = categoryResponse[0:6]
+			fiveStringLetterCategories  = ["groce", "schoo","perso","housi","custo","resta","bills",""]
+			#for key in startsCategory: 
+			### set the user input to different values fot it to be processec 
+			#if (firstLetterOfCategory == key):
+			currentString = fiveStringLetterCategories  #first letter of categories and VALUE
+
+			# Groceries Add 
+			if  (currentString == "groce"):
+				## Item, Cost, Quantity 
+				itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				groceryItems.append(itemToAdd.item)
+				groceryCost.append(itemToAdd.cost)
+				groceryQuanity.append(itemToAdd.quantity)
+				continue 
+
+			# Custom Add 
+			if  (currentString == "custo"):
+				# Item, Cost, Quantity 
+				itemToAdd.customAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				customItems.append(itemToAdd.item)
+				customCost.append(itemToAdd.cost)
+				customQuanity.append(itemToAdd.quantity)
+				break
+
+			#Personal Add
+			if  (currentString == "custo"):	
+				# Item, Cost, Quantity 
+				itemToAdd.personalAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				personalItems.append(itemToAdd.item)
+				personalCost.append(itemToAdd.cost)
+				personalQuanity.append(itemToAdd.quantity)
+				break 
+
+			#School Add 
+			if (currentString == "schoo"):
+				# Item, Cost, Quantity 
+				itemToAdd.schoolAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				schoolItems.append(itemToAdd.item)
+				schoolCost.append(itemToAdd.cost)
+				schoolQuanity.append(itemToAdd.quantity)
+				break 
+
+			#Housing Add
+			if  (currentString == "housi"):
+				# Item, Cost, Quantity 
+				itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				housingItems.append(itemToAdd.item)
+				housingCost.append(itemToAdd.cost)
+				housingQuanity.append(itemToAdd.quantity)
+				break
 
 
-					if currentAdd == "customAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.customAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						customItems.append(itemToAdd.item)
-						customCost.append(itemToAdd.cost)
-						customQuanity.append(itemToAdd.quantity)
+			#Restuarants Add
+			if  (currentString == "resta"):
+				# Item, Cost, Quantity 
+				itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				restaurantsItems.append(itemToAdd.item)
+				restaurantsCost.append(itemToAdd.cost)
+				restaurantsQuanity.append(itemToAdd.quantity)
+				break
 
-					if currentAdd == "personalAdd":	
-						# Item, Cost, Quantity 
-						itemToAdd.personalAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						personalItems.append(itemToAdd.item)
-						personalCost.append(itemToAdd.cost)
-						personalQuanity.append(itemToAdd.quantity)
+			#Bills Add 
+			if  (currentString == "bills"):
+				# Item, Cost, Quantity 
+				itemToAdd.billsAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				billsItems.append(itemToAdd.item)
+				billsCost.append(itemToAdd.cost)
+				billsQuanity.append(itemToAdd.quantity)
+				break 
 
-					if currentAdd == "schoolAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.schoolAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						schoolItems.append(itemToAdd.item)
-						schoolCost.append(itemToAdd.cost)
-						schoolQuanity.append(itemToAdd.quantity)
-					if currentAdd == "housingAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						housingItems.append(itemToAdd.item)
-						housingCost.append(itemToAdd.cost)
-						housingQuanity.append(itemToAdd.quantity)
-					if currentAdd == "restaurantsAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						restaurantsItems.append(itemToAdd.item)
-						restaurantsCost.append(itemToAdd.cost)
-						restaurantsQuanity.append(itemToAdd.quantity)
+			#Utilities Add 
+			if  (currentString == "utili"):
+				# Item, Cost, Quantity 
+				itemToAdd.utilitiesAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				utilitiesItems.append(itemToAdd.item)
+				utilitiesCost.append(itemToAdd.cost)
+				utilitiesQuanity.append(itemToAdd.quantity)
+				break
 
-					if currentAdd == "billsAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.billsAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						billsItems.append(itemToAdd.item)
-						billsCost.append(itemToAdd.cost)
-						billsQuanity.append(itemToAdd.quantity)
+			#Travel Add 
+			if (currentString == "custo"):
+				# Item, Cost, Quantity 
+				itemToAdd.travelAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				travelItems.append(itemToAdd.item)
+				travelCost.append(itemToAdd.cost)
+				travelQuanity.append(itemToAdd.quantity)
+				break
 
-					if currentAdd == "utilitiesAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.utilitiesAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						utilitiesItems.append(itemToAdd.item)
-						utilitiesCost.append(itemToAdd.cost)
-						utilitiesQuanity.append(itemToAdd.quantity)
+			#Transportation add 
+			if  (currentString == "custo"):
+				# Item, Cost, Quantity 
+				itemToAdd.transportationAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				transportationItems.append(itemToAdd.item)
+				transportationCost.append(itemToAdd.cost)
+				transportationQuanity.append(itemToAdd.quantity)
+				break
 
-					if currentAdd == "travelAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.travelAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						travelItems.append(itemToAdd.item)
-						travelCost.append(itemToAdd.cost)
-						travelQuanity.append(itemToAdd.quantity)
+			#Clothing Add 
+			if  (currentString == "custo"):
+				# Item, Cost, Quantity 
+				itemToAdd.clothingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				clothingItems.append(itemToAdd.item)
+				clothingCost.append(itemToAdd.cost)
+				clothingQuanity.append(itemToAdd.quantity)
+				break
 
-					if currentAdd == "transportationAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.transportationAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						transportationItems.append(itemToAdd.item)
-						transportationCost.append(itemToAdd.cost)
-						transportationQuanity.append(itemToAdd.quantity)
-
-					if currentAdd == "clothingAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.clothingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						clothingItems.append(itemToAdd.item)
-						clothingCost.append(itemToAdd.cost)
-						clothingQuanity.append(itemToAdd.quantity)
-
-					if currentAdd == "hygieneAdd":
-						# Item, Cost, Quantity 
-						itemToAdd.hygieneAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-						## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
-						hygieneItems.append(itemToAdd.item)
-						hygieneCost.append(itemToAdd.cost)
-						hygieneQuanity.append(itemToAdd.quantity)
+			#Hygiene Add 
+			if (currentString == "custo"):
+				# Item, Cost, Quantity 
+				itemToAdd.hygieneAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
+				## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+				hygieneItems.append(itemToAdd.item)
+				hygieneCost.append(itemToAdd.cost)
+				hygieneQuanity.append(itemToAdd.quantity)
+				break
 
 
 					#for key in addfunction:
@@ -397,12 +448,14 @@ def choseCategory():
 				## creates excel
 				## need to create series to allow to put into excel 
 				## also to prevent Value errror - array sizing 
+				############ Uses Pandas and DataFrame ############ 
 				#############
 				##   key   ##
 				##1 = items##
 				##2 = cost ##
 				##3 = quant##
 				#############
+
 				groceries1 = pd.Series(groceryItems, name='Grocery Items')
 				groceries2 = pd.Series(groceryCost, name='Grocery Cost')
 				groceries3 = pd.Series(groceryQuanity, name='Grocery Quanity')
@@ -435,7 +488,7 @@ def choseCategory():
 				bills2 = pd.Series(billsCost, name='Bill Cost')
 				bills3 = pd.Series(billsQuanity, name='Bill Quanity')
 
-				transportation1 = pd.Series(transportionItems, name='Transportation Items')
+				transportation1 = pd.Series(transportationItems, name='Transportation Items')
 				transportation2 = pd.Series(transportationCost, name='Transportation Cost')
 				transportation3 = pd.Series(transportationQuanity, name='Transportation Quanity')
 
@@ -448,7 +501,7 @@ def choseCategory():
 				clothing3 = pd.Series(clothingQuanity, name='Clothing Quanity')
 
 				hyg1 = pd.Series(hygieneItems, name='Hygiene Items')
-				hyg2 = pd.Series(hyieneCost, name='Hygiene Cost')
+				hyg2 = pd.Series(hygieneCost, name='Hygiene Cost')
 				hyg3 = pd.Series(hygieneQuanity, name='Hygiene Quanity')
 
 				#df = pd.DataFrame(({'Grocery Items': groceryItems, 'Grocery Cost': groceryCost,'Grocery Quanity':groceryQuanity,
@@ -472,7 +525,10 @@ def choseCategory():
 								,hyg1, hyg2, hyg3
 								,travel1, travel2, travel3 ], axis=1)
 
-				df.to_excel('managemeTest.xlsx', sheet_name='sheet1', index=False)
+				df.to_excel('manageme.xlsx', sheet_name='sheet1', index=False)
+
+				############ Uses Pandas and DataFrame ############ 
+
 				sys.exit() ## terminates 
 				## break only went to the next line
 		else:
