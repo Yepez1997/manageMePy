@@ -271,7 +271,7 @@ def choseCategory():
 			for key in classDictionaryList: 
 				if key in listOfCategories and categoryResponse in listOfCategories and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
-			itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
+					itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list 
 			# *******************************************************
 		
