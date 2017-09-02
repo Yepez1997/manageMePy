@@ -39,7 +39,4 @@ class Fullstats(Items): ## Should inherit items and account info or the class To
 		#print("Item", "Quantity","Total Cost")
 		#return self.item, self.quantity, self.quantity * self.cost
 
-	def average(self):
-		return 0
-
 	
