@@ -206,6 +206,7 @@ class Custom(Items):
 		return self.item, self.quantity, self.quantity * self.cost
 
 #*****  Restaurants Class *****#
+
 class Restaurants(Items):
 	def __init__(self,item,cost,quantity):
 		Items.__init__(self,item,cost,quantity)

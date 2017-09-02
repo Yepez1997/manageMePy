@@ -59,6 +59,7 @@ from items import Travel
 from items import Transportation
 from items import Clothing 
 from items import Hygiene 
+from items import Restaurants
 ## ISSUES input must be one variable - convert that 
 ## also need to iterate through all total items 
 ## make sure the input the is put in is the right time 
@@ -235,7 +236,7 @@ def choseCategory():
 	global hygieneQuanity
 	global totalItems 
 	global totalCost 
-	global totalQuanity
+	
 
 
 	categoryResponse = input('What category would you like to input into your Budget list? ')
@@ -279,7 +280,7 @@ def choseCategory():
 			##r key in classDictionaryList: fo
 			#if i in listOfCategories and categoryResponse in listOfCategories:
 			for key in classDictionaryList:
-				if key in classDictionaryList:
+				if key in classDictionaryList and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
 					itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list 
@@ -304,7 +305,7 @@ def choseCategory():
 			# NEED A FOR LOOP 
 			# Groceries Add 
 			for currentString in fiveStringLetterCategories: 
-				
+
 				if  (currentString == "groce"):
 					## Item, Cost, Quantity 
 					itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
@@ -313,8 +314,8 @@ def choseCategory():
 					groceryCost.append(itemToAdd.cost)
 					groceryQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break
 			
 
 				# Custom Add 
@@ -326,8 +327,8 @@ def choseCategory():
 					customCost.append(itemToAdd.cost)
 					customQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break
 				
 
 				#Personal Add
@@ -339,8 +340,8 @@ def choseCategory():
 					personalCost.append(itemToAdd.cost)
 					personalQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 				
 
 				#School Add 
@@ -352,8 +353,8 @@ def choseCategory():
 					schoolCost.append(itemToAdd.cost)
 					schoolQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 				 
 
 				#Housing Add
@@ -365,8 +366,8 @@ def choseCategory():
 					housingCost.append(itemToAdd.cost)
 					housingQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 					
 
 				#Restuarants Add
@@ -378,8 +379,8 @@ def choseCategory():
 					restaurantsCost.append(itemToAdd.cost)
 					restaurantsQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 				
 
 				#Bills Add 
@@ -391,9 +392,9 @@ def choseCategory():
 					billsCost.append(itemToAdd.cost)
 					billsQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
-				
+					break 
+
 				#Utilities Add 
 				if  (currentString == "utili"):
 					# Item, Cost, Quantity 
@@ -403,8 +404,8 @@ def choseCategory():
 					utilitiesCost.append(itemToAdd.cost)
 					utilitiesQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 					 
 
 				#Travel Add 
@@ -416,8 +417,8 @@ def choseCategory():
 					travelCost.append(itemToAdd.cost)
 					travelQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 			
 
 				#Transportation add 
@@ -429,8 +430,8 @@ def choseCategory():
 					transportationCost.append(itemToAdd.cost)
 					transportationQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break
 
 
 				#Clothing Add 
@@ -442,8 +443,8 @@ def choseCategory():
 					clothingCost.append(itemToAdd.cost)
 					clothingQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break 
 			
 
 				#Hygiene Add 
@@ -455,8 +456,8 @@ def choseCategory():
 					hygieneCost.append(itemToAdd.cost)
 					hygieneQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
-					totalQuanity.append(itemToAdd.cost)
 					totalCost.append(itemToAdd.quantity)
+					break
 
 
 					#for key in addfunction:
