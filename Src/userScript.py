@@ -312,7 +312,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
+		
 
 			# Custom Add 
 			if  (currentString == "custo"):
@@ -325,7 +325,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
+			
 
 			#Personal Add
 			if  (currentString == "custo"):	
@@ -338,7 +338,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue  
+			
 
 			#School Add 
 			if (currentString == "schoo"):
@@ -351,7 +351,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue  
+			 
 
 			#Housing Add
 			if  (currentString == "housi"):
@@ -364,8 +364,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
-
+				
 
 			#Restuarants Add
 			if  (currentString == "resta"):
@@ -378,7 +377,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
+			
 
 			#Bills Add 
 			if  (currentString == "bills"):
@@ -391,8 +390,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
-
+			
 			#Utilities Add 
 			if  (currentString == "utili"):
 				# Item, Cost, Quantity 
@@ -404,7 +402,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
+				 
 
 			#Travel Add 
 			if (currentString == "custo"):
@@ -417,7 +415,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue 
+		
 
 			#Transportation add 
 			if  (currentString == "custo"):
@@ -430,7 +428,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue
+
 
 			#Clothing Add 
 			if  (currentString == "custo"):
@@ -443,7 +441,7 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue
+		
 
 			#Hygiene Add 
 			if (currentString == "custo"):
@@ -456,7 +454,6 @@ def choseCategory():
 				totalItems.append(itemToAdd.item)
 				totalQuanity.append(itemToAdd.cost)
 				totalCost.append(itemToAdd.quantity)
-				continue
 
 
 					#for key in addfunction:
@@ -487,8 +484,8 @@ def choseCategory():
 				choseCategory()
 			if (yesOrNo == no):
 				print("Okay, here is a complete list of your items: ")
-				stats = Fullstats("Complete List",1,1) #defaulted to 1 
-				print(stats.totalsList())
+				##stats = Fullstats("Complete List",1,1) #defaulted to 1 
+				#print(stats.totalsList())
 				#listCat = DataFrame
 				## creates excel
 				## need to create series to allow to put into excel 
@@ -570,7 +567,7 @@ def choseCategory():
 								,hyg1, hyg2, hyg3
 								,travel1, travel2, travel3 ], axis=1)
 
-				df.to_excel('manageme.xlsx', sheet_name='sheet1', index=False)
+				df.to_excel('managemeTwo.xlsx', sheet_name='sheet1', index=False)
 
 				############ Uses Pandas and DataFrame ############ 
 
