@@ -1,72 +1,36 @@
-## File Description ## 
-## Author: Aureliano Yepez 
+## File Description ##
+## Author: Aureliano Yepez
 ## Date: July 30u, 2017
-'''
-# This is hard coded 
-fruit = Grocery('apple',2,3)
-print(fruit.item)
-print(fruit.cost)
-print(fruit.quantity)
-if (fruit):
-	fruit.groceryAdd(fruit.item,fruit.cost,fruit.quantity)
-	fruit.gList()
 
-fruittwo = Grocery('kiwi',1,5)
-print(fruittwo.item)
-print(fruittwo.cost)
-print(fruittwo.quantity)
-if (fruittwo):
-	fruittwo.groceryAdd(fruittwo.item,fruittwo.cost,fruittwo.quantity)
-	fruittwo.gList()
-
-fruitthree = Grocery('orange',3,5)
-print(fruitthree.item)
-print(fruitthree.cost)
-print(fruitthree.quantity)
-if (fruitthree):
-	fruitthree.groceryAdd(fruitthree.item,fruitthree.cost,fruitthree.quantity)
-	print(fruitthree.gList())
-
-## try to find a way to make this user friendly
-## *********** NEEDS TO BE TESTED 
-totals = Total() ##Should just calls itself 
-print(totals.groceriesIter())
-print(totals.housingIter())
-print(totals.personalIter())
-print(totals.schoolIter())
-print(totals.customIter())
-print(totals.Totals())
-'''
 import sys
 import numpy as np
 import pandas as pd
-from pandas import DataFrame 
-from excel import * 
+from pandas import DataFrame
+from excel import *
 
 
-#from pyspark.sql.types import StructType
 ## imported classes from file items.py #######
 from types import *
-from items import Items 
+from items import Items
 from items import Grocery
 from items import Personal
-from items import Custom 
-from items import School 
-from items import Housing 
-from items import Bills 
-from items import Utilities 
+from items import Custom
+from items import School
+from items import Housing
+from items import Bills
+from items import Utilities
 from items import Travel
 from items import Transportation
-from items import Clothing 
-from items import Hygiene 
+from items import Clothing
+from items import Hygiene
 from items import Restaurants
-## ISSUES input must be one variable - convert that 
-## also need to iterate through all total items 
-## make sure the input the is put in is the right time 
+
+## also need to iterate through all total items
+## make sure the input the is put in is the right time
 ## Specialize each category to be user friendly
 
 from fullstats import Fullstats
-#from items import Totals 
+#from items import Totals
 ###############################################
 
 ################# Start #######################
@@ -82,117 +46,72 @@ print("* Custom        * Clothing")
 print("* Restaurants   * Hygiene")
 print("######################################################################")
 
-## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess
-## If two words are compared and there is a 60 perecent or greater between the words then 
-## we can ask "did you mean ?" else we can ask again 
-## Compare raw_input versus the actual word in the listOfCatergories 
-
-# list of catergories, still more to be added
-
-#P1 --- list of words dataBase  
-#My imlplemenation of the Ratcliff algorthm concept
-"""
-listOfCategories = ["groceries","custom","school","housing","personal"]
-listOfCatergoriesIndex = [0,1,2,3,4] #still neds updates 
-categoryResponse = input("What would you like to input into your Budget list? ")
-if (categoryResponse):
-	charactersOfInput = list(categoryResponse) # characters of input 
-	print(charactersOfInput)
-	print("########################################")
-	for category in listOfCategories: 
-		categoryListWordChar = list(category) ## Gives me a matrix of the words 
-		print(categoryListWordChar)
-		StackOfCorrect = [] #Where we want to append and take off words in the list 
-		# wordsInCommon = 
-		for charInput in categoryResponse: 
-			#for cate
-			if charInput in category:
-				#print(charInput)
-
-				# if charInput in one of the matrix, we should append it to the StackOfCorrect
-				# we want to compare one matrix row at a time 
-				# each matrix row is a word, so in esence compare each word's chars with input chars 
-				# **** from there find a way to get the perctage of words anc compare
-
-				StackOfCorrect.append(charInput)
-				print(StackOfCorrect)
-				
-else: 
-	categoryResponse
-
-
-## Recursion as an alternate path -- probably more effective
-listOfCategories = ["groceries","custom","school","housing","personal"]
-listOfCatergoriesIndex = [0,1,2,3,4] #still neds updates 
-
-
-categoryResponse = list(categoryResponse)
-
-if 
-
-class TwoStrings
-
-	def __init__(stringOne,stringTwo):
-		self.stringOne = stringOne
-		self.stringTwo = stringTwo
-
-
-"""
-
+## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess ?
 
 ## globals are in excel.py
 groceryItems = []
 groceryCost = []
-groceryQuanity = [] 
-### Restaurants ### 
+groceryQuanity = []
+
+### Restaurants ###
 restaurantsItems = []
 restaurantsCost = []
-restaurantsQuanity = [] 
+restaurantsQuanity = []
+
 ### School ###
-schoolItems = [] 
+schoolItems = []
 schoolCost = []
 schoolQuanity = []
+
 ### Housing ###
 housingItems =[]
-housingCost = [] 
+housingCost = []
 housingQuanity =[]
-### Personal ### 
-personalItems = [] 
+
+### Personal ###
+personalItems = []
 personalCost = []
-personalQuanity = [] 
-### Custom ### 
-customItems = [] 
-customCost = [] 
+personalQuanity = []
+
+### Custom ###
+customItems = []
+customCost = []
 customQuanity = []
+
 ### Bills ###
-billsItems = [] 
-billsCost = [] 
+billsItems = []
+billsCost = []
 billsQuanity = []
+
 ### Utilities ###
-utilitiesItems = [] 
-utilitiesCost = [] 
+utilitiesItems = []
+utilitiesCost = []
 utilitiesQuanity = []
+
 ### Travel ###
-travelItems = [] 
-travelCost = [] 
+travelItems = []
+travelCost = []
 travelQuanity = []
+
 ### Transportation ###
-transportationItems = [] 
-transportationCost = [] 
+transportationItems = []
+transportationCost = []
 transportationQuanity = []
+
 ### Clothing ###
-clothingItems = [] 
-clothingCost = [] 
+clothingItems = []
+clothingCost = []
 clothingQuanity = []
+
 ### Hygiene ###
-hygieneItems = [] 
-hygieneCost = [] 
+hygieneItems = []
+hygieneCost = []
 hygieneQuanity = []
 
-## All the objects entered should be linear as they are added into the list 
-totalItems = [] 
-totalCost = [] 
-totalQuaninty = [] 
+# Total Objects
+totalItems = []
+totalCost = []
+totalQuaninty = []
 
 
 
@@ -208,13 +127,13 @@ def choseCategory():
 	global schoolCost
 	global schoolQuanity
 	global housingItems
-	global housingCost 
+	global housingCost
 	global housingQuanity
 	global personalItems
 	global personalCost
 	global personalQuanity
-	global customItems 
-	global customCost 
+	global customItems
+	global customCost
 	global customQuanity
 	global billsItems
 	global billsCost
@@ -234,29 +153,29 @@ def choseCategory():
 	global hygieneItems
 	global hygieneCost
 	global hygieneQuanity
-	global totalItems 
-	global totalCost 
-	
+	global totalItems
+	global totalCost
+
 
 
 	categoryResponse = input('What category would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal","restaurants","bills","travel","clothing","hygiene","transportation","utilities"]
 	#currentCategores = ["gList","cList","pList","hList","sList","rList","xList","yList","zList","tList","uList","bList"]
-	## MAKE SPECIFIC CASES ## 
+	## MAKE SPECIFIC CASES ##
 	### RECALL THISS ########
-	# y == clothing 
-	# x == hygiene 
-	# z == transportation 
+	# y == clothing
+	# x == hygiene
+	# z == transportation
 	#startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd", "b":"billsAdd",
-	#					"u":"utilitiesAdd","t":"travelAdd","z":"zransportationAdd","y":"ylothingAdd","x":"xygieneAdd"} #first letter of categories 
+	#					"u":"utilitiesAdd","t":"travelAdd","z":"zransportationAdd","y":"ylothingAdd","x":"xygieneAdd"} #first letter of categories
 	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
 	#key= Item category name
-	#value = Class Name   
+	#value = Class Name
 	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants",
 		"bills":"Bills", "utilities":"Utilities","travel":"Travel","transportation":"Transportation","clothing":"Clothing","hyiene":"Hygiene"}
 	for i in listOfCategories:
-		if (categoryResponse in listOfCategories): 
-			# add to the classes 
+		if (categoryResponse in listOfCategories):
+			# add to the classes
 			itemToAdd = input("What item would you like to add?: ")
 			#assert type(itemToAdd) is StringType, "Item is not a string: %r" % itemToAdd
 			costToAdd = input("How much does the item cost? ")
@@ -265,167 +184,159 @@ def choseCategory():
 			#assert type(quantityToAdd) is IntType, "cost is not an integer: %r" % quantityToAdd
 			## Make call to classes #########
 
-			###### Take a close look at this from stack over flow ####### 
-			#      exec("%s = %d" % (x,2)) 
-			#print(itemToAdd) USE TO DEBUG 
-			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable 
-			#print(itemToAdd) # we should get two if the number changes 
+			###### Take a close look at this from stack over flow #######
+			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable
 
-			## keep in mind 
-			# y == clothing 
-			# x == hygiene 
-			# z == transportation 
-
-			########### IMPORTANT INFORMATION ########### THIS IS WHERE THE ERROR OCCURS 
+			########### IMPORTANT INFORMATION ########### THIS IS WHERE THE ERROR OCCURS
 			##r key in classDictionaryList: fo
 			#if i in listOfCategories and categoryResponse in listOfCategories:
 			for key in classDictionaryList:
 				if key in classDictionaryList and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
 					itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
-			## need to know what catergories to add once in the list 
+			## need to know what catergories to add once in the list
 			# *******************************************************
-		
 
 
 
-			## THIS NEEDS TO BE FIXED  
-			## neccesary to have to iterate throught every letter 
-			## what if we take the first 5 letters and compare to strings that would be used 
-			firstLetterOfCategory = categoryResponse[0] ## THIS NEEDS TO BE FIXED 
+
+			## THIS NEEDS TO BE FIXED
+			## neccesary to have to iterate throught every letter
+			## what if we take the first 5 letters and compare to strings that would be used
+			firstLetterOfCategory = categoryResponse[0] ## THIS NEEDS TO BE FIXED
 			#firstTwo = categoryResponse[0:2]
-			#firstThree = categoryResponse[0:3] #recal last number is not inclusive 
+			#firstThree = categoryResponse[0:3] #recal last number is not inclusive
 			#firstFour = categoryResponse[0:4]
 			#firstFiveLettersOfResponse = categoryResponse[0:6]
 			fiveStringLetterCategories  = ["groce", "schoo","perso","housi","custo","resta","bills","resta","perso","bills","utili","trave","trans","cloth","hygie" ]
-			#for key in startsCategory: 
-			### set the user input to different values fot it to be processec 
+			#for key in startsCategory:
+			### set the user input to different values fot it to be processec
 			#if (firstLetterOfCategory == key):
 			#currentString = fiveStringLetterCategories  #first letter of categories and VALUE
-			# NEED A FOR LOOP 
-			# Groceries Add 
-			for currentString in fiveStringLetterCategories: 
+			# NEED A FOR LOOP
+			# Groceries Add
+			for currentString in fiveStringLetterCategories:
 
 				if  (currentString == "groce"):
-					## Item, Cost, Quantity 
+					## Item, Cost, Quantity
 					itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					groceryItems.append(itemToAdd.item)
 					groceryCost.append(itemToAdd.cost)
 					groceryQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
 					break
-			
 
-				# Custom Add 
+
+				# Custom Add
 				if  (currentString == "custo"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.customAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					customItems.append(itemToAdd.item)
 					customCost.append(itemToAdd.cost)
 					customQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
 					break
-				
+
 
 				#Personal Add
-				if  (currentString == "perso"):	
-					# Item, Cost, Quantity 
+				if  (currentString == "perso"):
+					# Item, Cost, Quantity
 					itemToAdd.personalAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					personalItems.append(itemToAdd.item)
 					personalCost.append(itemToAdd.cost)
 					personalQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-				
+					break
 
-				#School Add 
+
+				#School Add
 				if (currentString == "schoo"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.schoolAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					schoolItems.append(itemToAdd.item)
 					schoolCost.append(itemToAdd.cost)
 					schoolQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-				 
+					break
+
 
 				#Housing Add
 				if  (currentString == "housi"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					housingItems.append(itemToAdd.item)
 					housingCost.append(itemToAdd.cost)
 					housingQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-					
+					break
+
 
 				#Restuarants Add
 				if  (currentString == "resta"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.housingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					restaurantsItems.append(itemToAdd.item)
 					restaurantsCost.append(itemToAdd.cost)
 					restaurantsQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-				
+					break
 
-				#Bills Add 
+
+				#Bills Add
 				if  (currentString == "bills"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.billsAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					billsItems.append(itemToAdd.item)
 					billsCost.append(itemToAdd.cost)
 					billsQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
+					break
 
-				#Utilities Add 
+				#Utilities Add
 				if  (currentString == "utili"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.utilitiesAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					utilitiesItems.append(itemToAdd.item)
 					utilitiesCost.append(itemToAdd.cost)
 					utilitiesQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-					 
+					break
 
-				#Travel Add 
+
+				#Travel Add
 				if (currentString == "trave"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.travelAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					travelItems.append(itemToAdd.item)
 					travelCost.append(itemToAdd.cost)
 					travelQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-			
+					break
 
-				#Transportation add 
+
+				#Transportation add
 				if  (currentString == "trans"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.transportationAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					transportationItems.append(itemToAdd.item)
 					transportationCost.append(itemToAdd.cost)
 					transportationQuanity.append(itemToAdd.quantity)
@@ -434,24 +345,24 @@ def choseCategory():
 					break
 
 
-				#Clothing Add 
+				#Clothing Add
 				if  (currentString == "cloth"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.clothingAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					clothingItems.append(itemToAdd.item)
 					clothingCost.append(itemToAdd.cost)
 					clothingQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					break 
-			
+					break
 
-				#Hygiene Add 
+
+				#Hygiene Add
 				if (currentString == "hygie"):
-					# Item, Cost, Quantity 
+					# Item, Cost, Quantity
 					itemToAdd.hygieneAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET 
+					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
 					hygieneItems.append(itemToAdd.item)
 					hygieneCost.append(itemToAdd.cost)
 					hygieneQuanity.append(itemToAdd.quantity)
@@ -463,18 +374,18 @@ def choseCategory():
 					#for key in addfunction:
 					#	if key == currentAdd:
 					#		print(key)
-							
+
 							#itemToAdd.addfunction[key]() # should print a function
-							#exec("%s=%d" % (currentAdd, 2)) # to make as a variable 
+							#exec("%s=%d" % (currentAdd, 2)) # to make as a variable
 							#print(itemToAdd.currentAdd())
 
 
 
 			#firstLetterOfCategorie = itemToAdd.item[0]
 
-			
+
 			###################################
-			## Works !!!!!!!!! CREATES CLASSES 
+			## Works !!!!!!!!! CREATES CLASSES
 			print("Succesfully added a category for: " + str(categoryResponse))
 			print("You have added " + str(itemToAdd.quantity)+ " " + str(itemToAdd.item) +"(s)" + " at a price of " + costToAdd + " each" )
 			yesOrNo = input("Do you want to add another item? (yes/no) ")
@@ -488,13 +399,13 @@ def choseCategory():
 				choseCategory()
 			if (yesOrNo == no):
 				print("Okay, here is a complete list of your items: ")
-				##stats = Fullstats("Complete List",1,1) #defaulted to 1 
+				##stats = Fullstats("Complete List",1,1) #defaulted to 1
 				#print(stats.totalsList())
 				#listCat = DataFrame
 				## creates excel
-				## need to create series to allow to put into excel 
-				## also to prevent Value errror - array sizing 
-				############ Uses Pandas and DataFrame ############ 
+				## need to create series to allow to put into excel
+				## also to prevent Value errror - array sizing
+				############ Uses Pandas and DataFrame ############
 				#############
 				##   key   ##
 				##1 = items##
@@ -561,7 +472,7 @@ def choseCategory():
 				df = pd.concat([groceries1,groceries2,groceries3
 								,housing1, housing2, housing3
 								,personal1, personal2, personal3
-								,custom1, custom2, custom3 
+								,custom1, custom2, custom3
 								,school1, school2, school3
 								,restau1,restau2,restau3
 								,bills1, bills2, bills3
@@ -573,17 +484,13 @@ def choseCategory():
 
 				df.to_excel('managemethree.xlsx', sheet_name='Data', index=False)
 
-				############ Uses Pandas and DataFrame ############ 
+				############ Uses Pandas and DataFrame ############
 
-				sys.exit() ## terminates 
-				## break only went to the next line
+				sys.exit() ## terminates
+				
 		else:
 			print("Sorry the category " + str(categoryResponse) + " is not in the list")
 			choseCategory()
 
 
 choseCategory()
-
-
-
-
