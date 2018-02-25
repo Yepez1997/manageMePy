@@ -43,7 +43,7 @@ print("* School        * Utilities")
 print("* Housing       * Travel")
 print("* Personal      * Transportation")
 print("* Custom        * Clothing")
-print("* Restaurants   * Hygiene")
+print("* Restaurants   * Hygiene")t
 print("######################################################################")
 
 ## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess ?
@@ -160,44 +160,29 @@ def choseCategory():
 
 	categoryResponse = input('What category would you like to input into your Budget list? ')
 	listOfCategories = ["groceries","custom","school","housing","personal","restaurants","bills","travel","clothing","hygiene","transportation","utilities"]
-	#currentCategores = ["gList","cList","pList","hList","sList","rList","xList","yList","zList","tList","uList","bList"]
-	## MAKE SPECIFIC CASES ##
-	### RECALL THISS ########
-	# y == clothing
-	# x == hygiene
-	# z == transportation
-	#startsCategory = {"g":"groceryAdd","c":"customAdd","p":"personalAdd","h":"housingAdd","s":"schoolAdd", "r":"restaurantsAdd", "b":"billsAdd",
-	#					"u":"utilitiesAdd","t":"travelAdd","z":"zransportationAdd","y":"ylothingAdd","x":"xygieneAdd"} #first letter of categories
-	#addfunction = {"groceryAdd":groceryAdd,"customAdd":customAdd,"personalAdd":personalAdd,"housingAdd":housingAdd,"schoolAdd":schoolAdd}
-	#key= Item category name
-	#value = Class Name
 	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants",
 		"bills":"Bills", "utilities":"Utilities","travel":"Travel","transportation":"Transportation","clothing":"Clothing","hyiene":"Hygiene"}
 	for i in listOfCategories:
 		if (categoryResponse in listOfCategories):
-			# add to the classes
+
 			itemToAdd = input("What item would you like to add?: ")
-			#assert type(itemToAdd) is StringType, "Item is not a string: %r" % itemToAdd
+
 			costToAdd = input("How much does the item cost? ")
-			#assert type(costToAdd) is IntType, "cost is not an integer: %r" % costToAdd
+
 			quantityToAdd = input("How many would you like to add?: ")
-			#assert type(quantityToAdd) is IntType, "cost is not an integer: %r" % quantityToAdd
+
 			## Make call to classes #########
 
 			###### Take a close look at this from stack over flow #######
 			exec("%s=%d" % (itemToAdd, 2)) # to make as a variable
 
 			########### IMPORTANT INFORMATION ########### THIS IS WHERE THE ERROR OCCURS
-			##r key in classDictionaryList: fo
-			#if i in listOfCategories and categoryResponse in listOfCategories:
+
 			for key in classDictionaryList:
 				if key in classDictionaryList and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
 					itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list
-			# *******************************************************
-
-
 
 
 			## THIS NEEDS TO BE FIXED
@@ -211,12 +196,10 @@ def choseCategory():
 			fiveStringLetterCategories  = ["groce", "schoo","perso","housi","custo","resta","bills","resta","perso","bills","utili","trave","trans","cloth","hygie" ]
 			#for key in startsCategory:
 			### set the user input to different values fot it to be processec
-			#if (firstLetterOfCategory == key):
-			#currentString = fiveStringLetterCategories  #first letter of categories and VALUE
-			# NEED A FOR LOOP
-			# Groceries Add
+
 			for currentString in fiveStringLetterCategories:
 
+				# Grocery add
 				if  (currentString == "groce"):
 					## Item, Cost, Quantity
 					itemToAdd.groceryAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
@@ -370,20 +353,6 @@ def choseCategory():
 					totalCost.append(itemToAdd.quantity)
 					break
 
-
-					#for key in addfunction:
-					#	if key == currentAdd:
-					#		print(key)
-
-							#itemToAdd.addfunction[key]() # should print a function
-							#exec("%s=%d" % (currentAdd, 2)) # to make as a variable
-							#print(itemToAdd.currentAdd())
-
-
-
-			#firstLetterOfCategorie = itemToAdd.item[0]
-
-
 			###################################
 			## Works !!!!!!!!! CREATES CLASSES
 			print("Succesfully added a category for: " + str(categoryResponse))
@@ -399,6 +368,7 @@ def choseCategory():
 				choseCategory()
 			if (yesOrNo == no):
 				print("Okay, here is a complete list of your items: ")
+				
 				##stats = Fullstats("Complete List",1,1) #defaulted to 1
 				#print(stats.totalsList())
 				#listCat = DataFrame
@@ -461,13 +431,6 @@ def choseCategory():
 				hyg2 = pd.Series(hygieneCost, name='Hygiene Cost')
 				hyg3 = pd.Series(hygieneQuanity, name='Hygiene Quanity')
 
-				#df = pd.DataFrame(({'Grocery Items': groceryItems, 'Grocery Cost': groceryCost,'Grocery Quanity':groceryQuanity,
-				#	'Housing Items': housingItems,'Housing Cost': housingCost, 'Housing Quanity':housingQuanity,
-				#	'School Items': schoolItems, 'School Cost': schoolCost, 'School Quanity': schoolQuanity,
-				#	'Restaurants Items': restaurantsItems, 'Restaurants Cost': restaurantsCost, 'Restaurants Quanity': restaurantsQuanity,
-				#	'Personal Items': personalItems, 'Personal Cost': personalCost, 'Personal Quanity': personalQuanity,
-				#	'Custom Items': customItems, 'Custom Cost': customCost, 'Custom Quanity': customQuanity, }))
-				#df.transpose()
 				## Works ##
 				df = pd.concat([groceries1,groceries2,groceries3
 								,housing1, housing2, housing3
@@ -487,7 +450,7 @@ def choseCategory():
 				############ Uses Pandas and DataFrame ############
 
 				sys.exit() ## terminates
-				
+
 		else:
 			print("Sorry the category " + str(categoryResponse) + " is not in the list")
 			choseCategory()
