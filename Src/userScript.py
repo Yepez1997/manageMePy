@@ -164,13 +164,8 @@ def choseCategory():
 	for i in list_of_categories:
 		## First check if we are in the categories
 		if (categoryResponse in listOfCategories):
-
-			itemToAdd = input("What item would you like to add?: ")
-
-			costToAdd = input("How much does the item cost? ")
-
-			quantityToAdd = input("How many would you like to add?: ")
-
+	
+			itemToAdd, costToAdd, quantityToAdd = user_input()
 			## user_input
 
 			## We want to call a function to call all user input and return all user input
