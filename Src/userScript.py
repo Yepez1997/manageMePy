@@ -25,6 +25,11 @@ from items import Clothing
 from items import Hygiene
 from items import Restaurants
 
+## import all files from categories ##
+from ./categories import * #double check
+
+##create hash function for accesing and setting up info ? sounds like a agood idea s
+
 ## also need to iterate through all total items
 ## make sure the input the is put in is the right time
 ## Specialize each category to be user friendly
@@ -73,15 +78,7 @@ personalItems = []
 personalCost = []
 personalQuanity = []
 
-### Custom ###
-customItems = []
-customCost = []
-customQuanity = []
 
-### Bills ###
-billsItems = []
-billsCost = []
-billsQuanity = []
 
 ### Utilities ###
 utilitiesItems = []
@@ -174,8 +171,10 @@ def choseCategory():
 
 			quantityToAdd = input("How many would you like to add?: ")
 
+			## user_input
+
 			## We want to call a function to call all user input and return all user input
-			user
+
 
 			## Make call to classes #########
 
@@ -218,15 +217,7 @@ def choseCategory():
 
 				# Custom Add
 				if  (currentString == "custo"):
-					# Item, Cost, Quantity
-					itemToAdd.customAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
-					customItems.append(itemToAdd.item)
-					customCost.append(itemToAdd.cost)
-					customQuanity.append(itemToAdd.quantity)
-					totalItems.append(itemToAdd.item)
-					totalCost.append(itemToAdd.quantity)
-					##custom_add
+					custom_add()
 					break
 
 
@@ -284,14 +275,8 @@ def choseCategory():
 
 				#Bills Add
 				if  (currentString == "bills"):
-					# Item, Cost, Quantity
-					itemToAdd.billsAdd(itemToAdd.item, itemToAdd.cost,itemToAdd.quantity)
-					## APPEND TO EXCEL.PY TO SAVE DATA AND CREATE EXCEL SHEET
-					billsItems.append(itemToAdd.item)
-					billsCost.append(itemToAdd.cost)
-					billsQuanity.append(itemToAdd.quantity)
-					totalItems.append(itemToAdd.item)
-					totalCost.append(itemToAdd.quantity)
+					## call function that adds all builds
+					bills_add()
 					break
 
 				#Utilities Add
@@ -461,4 +446,5 @@ def choseCategory():
 			choseCategory()
 
 
+## start program
 choseCategory()
