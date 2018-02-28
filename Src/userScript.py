@@ -164,7 +164,7 @@ def choseCategory():
 	for i in list_of_categories:
 		## First check if we are in the categories
 		if (categoryResponse in listOfCategories):
-	
+
 			itemToAdd, costToAdd, quantityToAdd = user_input()
 			## user_input
 
@@ -193,6 +193,7 @@ def choseCategory():
 			fiveStringLetterCategories  = ["groce", "schoo","perso","housi","custo","resta","bills","resta","perso","bills","utili","trave","trans","cloth","hygie" ]
 			#for key in startsCategory:
 			### set the user input to different values fot it to be processec
+			## think of better way to search and access information
 
 			for currentString in fiveStringLetterCategories:
 
@@ -226,6 +227,7 @@ def choseCategory():
 					personalQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					personal_add()
 					break
 
 
@@ -239,6 +241,7 @@ def choseCategory():
 					schoolQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					school_add()
 					break
 
 
@@ -252,6 +255,7 @@ def choseCategory():
 					housingQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					housing_add()
 					break
 
 
@@ -265,6 +269,7 @@ def choseCategory():
 					restaurantsQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					restuarants_add()
 					break
 
 
@@ -284,6 +289,7 @@ def choseCategory():
 					utilitiesQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					utilities_add()
 					break
 
 
@@ -297,6 +303,7 @@ def choseCategory():
 					travelQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					travel_add()
 					break
 
 
@@ -310,6 +317,7 @@ def choseCategory():
 					transportationQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					transportaion_add()
 					break
 
 
@@ -323,6 +331,7 @@ def choseCategory():
 					clothingQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					clothing_add()
 					break
 
 
@@ -336,6 +345,7 @@ def choseCategory():
 					hygieneQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					hygiene_add() 
 					break
 
 			###################################
