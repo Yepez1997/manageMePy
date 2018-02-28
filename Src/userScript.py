@@ -157,12 +157,15 @@ def choseCategory():
 	global totalCost
 
 
+	## User Input
+	category_ response = input('What category would you like to input into your Budget list? ')
 
-	categoryResponse = input('What category would you like to input into your Budget list? ')
-	listOfCategories = ["groceries","custom","school","housing","personal","restaurants","bills","travel","clothing","hygiene","transportation","utilities"]
-	classDictionaryList = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants",
+	list_of_categories = ["groceries","custom","school","housing","personal","restaurants","bills","travel","clothing","hygiene","transportation","utilities"]
+	class_dictionary_list = {"groceries":"Grocery","custom":"Custom","school":"School","housing":"Housing","personal":"Personal", "restaurants":"Restaurants",
 		"bills":"Bills", "utilities":"Utilities","travel":"Travel","transportation":"Transportation","clothing":"Clothing","hyiene":"Hygiene"}
-	for i in listOfCategories:
+
+	for i in list_of_categories:
+		## First check if we are in the categories
 		if (categoryResponse in listOfCategories):
 
 			itemToAdd = input("What item would you like to add?: ")
@@ -171,6 +174,9 @@ def choseCategory():
 
 			quantityToAdd = input("How many would you like to add?: ")
 
+			## We want to call a function to call all user input and return all user input
+			user
+
 			## Make call to classes #########
 
 			###### Take a close look at this from stack over flow #######
@@ -178,8 +184,8 @@ def choseCategory():
 
 			########### IMPORTANT INFORMATION ########### THIS IS WHERE THE ERROR OCCURS
 
-			for key in classDictionaryList:
-				if key in classDictionaryList and key == categoryResponse:
+			for key in class_dictionary_list:
+				if key in class_dictionary_list and key == categoryResponse:
 					classKey = eval(classDictionaryList[key])
 					itemToAdd = classKey(itemToAdd, costToAdd, quantityToAdd) ## class
 			## need to know what catergories to add once in the list
@@ -189,10 +195,7 @@ def choseCategory():
 			## neccesary to have to iterate throught every letter
 			## what if we take the first 5 letters and compare to strings that would be used
 			firstLetterOfCategory = categoryResponse[0] ## THIS NEEDS TO BE FIXED
-			#firstTwo = categoryResponse[0:2]
-			#firstThree = categoryResponse[0:3] #recal last number is not inclusive
-			#firstFour = categoryResponse[0:4]
-			#firstFiveLettersOfResponse = categoryResponse[0:6]
+
 			fiveStringLetterCategories  = ["groce", "schoo","perso","housi","custo","resta","bills","resta","perso","bills","utili","trave","trans","cloth","hygie" ]
 			#for key in startsCategory:
 			### set the user input to different values fot it to be processec
@@ -209,6 +212,7 @@ def choseCategory():
 					groceryQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					##grocery_add
 					break
 
 
@@ -222,6 +226,7 @@ def choseCategory():
 					customQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
+					##custom_add
 					break
 
 
@@ -368,7 +373,7 @@ def choseCategory():
 				choseCategory()
 			if (yesOrNo == no):
 				print("Okay, here is a complete list of your items: ")
-				
+
 				##stats = Fullstats("Complete List",1,1) #defaulted to 1
 				#print(stats.totalsList())
 				#listCat = DataFrame
