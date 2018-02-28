@@ -1,0 +1,4 @@
+### Personal ###
+personalItems = []
+personalCost = []
+personalQuanity = []

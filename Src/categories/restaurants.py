@@ -1,0 +1,4 @@
+### Restaurants ###
+restaurantsItems = []
+restaurantsCost = []
+restaurantsQuanity = []

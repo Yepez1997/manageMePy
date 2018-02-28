@@ -1,0 +1,4 @@
+### Hygiene ###
+hygieneItems = []
+hygieneCost = []
+hygieneQuanity = []

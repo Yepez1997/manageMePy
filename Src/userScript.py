@@ -33,6 +33,7 @@ from ./categories import * #double check
 ## also need to iterate through all total items
 ## make sure the input the is put in is the right time
 ## Specialize each category to be user friendly
+## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess ?
 
 from fullstats import Fullstats
 #from items import Totals
@@ -51,66 +52,11 @@ print("* Custom        * Clothing")
 print("* Restaurants   * Hygiene")t
 print("######################################################################")
 
-## Can implement the Ratcliff and Obershelp Algorithm for word correcting purposess ?
 
-## globals are in excel.py
-groceryItems = []
-groceryCost = []
-groceryQuanity = []
-
-### Restaurants ###
-restaurantsItems = []
-restaurantsCost = []
-restaurantsQuanity = []
-
-### School ###
-schoolItems = []
-schoolCost = []
-schoolQuanity = []
-
-### Housing ###
-housingItems =[]
-housingCost = []
-housingQuanity =[]
-
-### Personal ###
-personalItems = []
-personalCost = []
-personalQuanity = []
-
-
-
-### Utilities ###
-utilitiesItems = []
-utilitiesCost = []
-utilitiesQuanity = []
-
-### Travel ###
-travelItems = []
-travelCost = []
-travelQuanity = []
-
-### Transportation ###
-transportationItems = []
-transportationCost = []
-transportationQuanity = []
-
-### Clothing ###
-clothingItems = []
-clothingCost = []
-clothingQuanity = []
-
-### Hygiene ###
-hygieneItems = []
-hygieneCost = []
-hygieneQuanity = []
-
-# Total Objects
+## Total Objects
 totalItems = []
 totalCost = []
 totalQuaninty = []
-
-
 
 def choseCategory():
 
@@ -345,7 +291,7 @@ def choseCategory():
 					hygieneQuanity.append(itemToAdd.quantity)
 					totalItems.append(itemToAdd.item)
 					totalCost.append(itemToAdd.quantity)
-					hygiene_add() 
+					hygiene_add()
 					break
 
 			###################################

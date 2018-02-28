@@ -1,0 +1,5 @@
+
+### School ###
+schoolItems = []
+schoolCost = []
+schoolQuanity = []

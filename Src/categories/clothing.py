@@ -1,0 +1,4 @@
+### Clothing ###
+clothingItems = []
+clothingCost = []
+clothingQuanity = []
